@@ -3,17 +3,67 @@ const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('../../../lib/get-form-fields.js')
 
-const onSignUp = function (event) {
+const onCreateIssue = function (event) {
   event.preventDefault()
 
   const form = event.target
   const formData = getFormFields(form)
-  api.signUp(formData)
-    .then(ui.onSignUpSuccess)
-    .catch(ui.onSignUpError)
+  api.createIssue(formData)
+    .then(ui.onCreateIssueSuccess)
+    .catch(ui.onCreateIssueError)
 }
 
-const onSignIn = function (event) {
+const onDeleteIssue = function (event) {
+  event.preventDefault()
+
+  const form = event.target
+  const formData = getFormFields(form)
+  api.signIn(formData)
+    .then(ui.onSignInSuccess)
+    .catch(ui.onSignInError)
+}
+
+const onUpdateIssue = function (event) {
+  event.preventDefault()
+
+  const form = event.target
+  const formData = getFormFields(form)
+  api.changePass(formData)
+    .then(ui.onChangePassSuccess)
+    .catch(ui.onChangePassError)
+}
+
+const onShowIssues = function (event) {
+  event.preventDefault()
+
+  const form = event.target
+  const formData = getFormFields(form)
+  api.signOut(formData)
+    .then(ui.onSignOutSuccess)
+    .catch(ui.onSignOutError)
+}
+
+const onShowIssue = function (event) {
+  event.preventDefault()
+
+  const form = event.target
+  const formData = getFormFields(form)
+  api.signOut(formData)
+    .then(ui.onSignOutSuccess)
+    .catch(ui.onSignOutError)
+}
+
+const onCreateComment = function (event) {
+  event.preventDefault()
+
+  const form = event.target
+  const formData = getFormFields(form)
+  api.createIssue(formData)
+    .then(ui.onCreateIssueSuccess)
+    .catch(ui.onCreateIssueError)
+}
+
+const onDeleteComment = function (event) {
   event.preventDefault()
 
   // turn = true
@@ -26,7 +76,7 @@ const onSignIn = function (event) {
     .catch(ui.onSignInError)
 }
 
-const onChangePass = function (event) {
+const onUpdateComment = function (event) {
   event.preventDefault()
 
   const form = event.target
@@ -36,19 +86,13 @@ const onChangePass = function (event) {
     .catch(ui.onChangePassError)
 }
 
-const onSignOut = function (event) {
-  event.preventDefault()
-
-  const form = event.target
-  const formData = getFormFields(form)
-  api.signOut(formData)
-    .then(ui.onSignOutSuccess)
-    .catch(ui.onSignOutError)
-}
-
 module.exports = {
-  onSignUp,
-  onSignIn,
-  onChangePass,
-  onSignOut
+  onCreateIssue,
+  onDeleteIssue,
+  onUpdateIssue,
+  onShowIssues,
+  onShowIssue,
+  onCreateComment,
+  onDeleteComment,
+  onUpdateComment
 }

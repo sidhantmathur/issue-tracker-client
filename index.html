@@ -17,29 +17,59 @@
     <div id="auth-display-text">
       Info
     </div>
-    <form id="sign-up">
-      <h2>Sign Up</h2>
-        <input type="email" class="form-control" name="auth[email]" placeholder="Email" required>
-        <input type="password" class="form-control" name="auth[password]" placeholder="Password" required>
-        <input type="password" class="form-control" name="auth[confirmPassword]" placeholder="Password Confirmation" required>
-        <input type="submit" class="btn btn-primary">
-    </form>
-    <form id="sign-in">
-      <h2>Sign In</h2>
-        <input type="email" class="form-control" name="auth[email]" placeholder="Email" required>
-        <input type="password" class="form-control" name="auth[password]" placeholder="Password" required>
-        <input type="submit" class="btn btn-primary">
-    </form>
-    <form id="change-pass">
-      <h2>Change Password</h2>
-        <input type="password" name="auth[oldPass]" class="form-control" placeholder="Old Password" required>
-        <input type="password" name="auth[newPass]" class="form-control" placeholder="New Password" required>
-        <input type="submit" class="btn btn-danger" value="Change Password">
-    </form>
-    <form id="sign-out">
-      <h2>Sign Out</h2>
-      <input type="submit" class="btn btn-primary" value="Sign Out">
-    </form>
+    <div>
+      <form id="sign-up">
+        <h2>Sign Up</h2>
+          <input type="email" class="form-control" name="auth[email]" placeholder="Email" required>
+          <input type="password" class="form-control" name="auth[password]" placeholder="Password" required>
+          <input type="password" class="form-control" name="auth[confirmPassword]" placeholder="Password Confirmation" required>
+          <input type="submit" class="btn btn-primary">
+      </form>
+      <form id="sign-in">
+        <h2>Sign In</h2>
+          <input type="email" class="form-control" name="auth[email]" placeholder="Email" required>
+          <input type="password" class="form-control" name="auth[password]" placeholder="Password" required>
+          <input type="submit" class="btn btn-primary">
+      </form>
+      <form id="change-pass">
+        <h2>Change Password</h2>
+          <input type="password" name="auth[oldPass]" class="form-control" placeholder="Old Password" required>
+          <input type="password" name="auth[newPass]" class="form-control" placeholder="New Password" required>
+          <input type="submit" class="btn btn-danger" value="Change Password">
+      </form>
+      <form id="sign-out">
+        <input type="submit" class="btn btn-danger" value="Sign Out">
+      </form>
+    </div>
+    <div>
+      <form id="create-issue">
+        <h2>Create Issue</h2>
+          <input type="text" name="title" class="form-control" placeholder="Title" required>
+          <input type="text" name="text" class="form-control" placeholder="Body" required>
+          <input type="submit" class="btn btn-primary" value="Create Issue">
+      </form>
+      <form id="update-issue">
+        <h2>Update Issue</h2>
+          <input type="text" name="text" class="form-control" placeholder="Update text" required>
+          <input type="text" name="issue-id" class="form-control" placeholder="Issue ID" required>
+          <input type="submit" class="btn btn-warning" value="Update Issue">
+      </form>
+      <form id="delete-issue">
+        <h2>Delete issue</h2>
+          <input type="text" name="issue-id" class="form-control" placeholder="Issue ID" required>
+          <input type="submit" class="btn btn-danger" value="Delete Issue">
+      </form>
+      <form id="show-issues">
+        <h2>Show All Issues</h2>
+          <input type="submit" class="btn btn-success" value="Show Issues">
+      </form>
+      <form id="show-issue">
+        <h2>Show One Issue</h2>
+          <input type="text" name="issue-id" class="form-control" placeholder="Issue ID" required>
+          <input type="submit" class="btn btn-danger" value="Show Issue">
+      </form>
+    </div>
+
   </main>
     </body>
 </html>
