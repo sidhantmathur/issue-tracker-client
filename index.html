@@ -13,5 +13,33 @@
     </head>
     <body>
       <h1>Browser Template</h1>
+  <main class="container">
+    <div id="auth-display-text">
+      Info
+    </div>
+    <form id="sign-up">
+      <h2>Sign Up</h2>
+        <input type="email" class="form-control" name="auth[email]" placeholder="Email" required>
+        <input type="password" class="form-control" name="auth[password]" placeholder="Password" required>
+        <input type="password" class="form-control" name="auth[confirmPassword]" placeholder="Password Confirmation" required>
+        <input type="submit" class="btn btn-primary">
+    </form>
+    <form id="sign-in">
+      <h2>Sign In</h2>
+        <input type="email" class="form-control" name="auth[email]" placeholder="Email" required>
+        <input type="password" class="form-control" name="auth[password]" placeholder="Password" required>
+        <input type="submit" class="btn btn-primary">
+    </form>
+    <form id="change-pass">
+      <h2>Change Password</h2>
+        <input type="password" name="auth[oldPass]" class="form-control" placeholder="Old Password" required>
+        <input type="password" name="auth[newPass]" class="form-control" placeholder="New Password" required>
+        <input type="submit" class="btn btn-danger" value="Change Password">
+    </form>
+    <form id="sign-out">
+      <h2>Sign Out</h2>
+      <input type="submit" class="btn btn-primary" value="Sign Out">
+    </form>
+  </main>
     </body>
 </html>
