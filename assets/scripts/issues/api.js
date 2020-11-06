@@ -2,52 +2,25 @@
 const config = require('../config')
 const store = require('../store')
 
-const signUp = function (formData) {
+const createIssue = function (formData) {
   return $.ajax({
-    url: config.apiUrl + '/sign-up',
+    url: config.apiUrl + '/issues',
     method: 'POST',
-    data: {
-      credentials: {
-        email: formData.auth.email,
-        password: formData.auth.password,
-        password_confirmation: formData.auth.confirmPassword
-      }
-    }
-  })
-}
-
-const signIn = function (formData) {
-  return $.ajax({
-    url: config.apiUrl + '/sign-in',
-    method: 'POST',
-    data: {
-      credentials: {
-        email: formData.auth.email,
-        password: formData.auth.password
-      }
-    }
-  })
-}
-
-const changePass = function (formData) {
-  return $.ajax({
-    url: config.apiUrl + '/change-password',
-    method: 'PATCH',
     headers: {
       Authorization: 'Bearer ' + store.user.token
     },
     data: {
-      passwords: {
-        old: formData.auth.oldPass,
-        new: formData.auth.newPass
+      issue: {
+        text: formData.text,
+        password: formData.title
       }
     }
   })
 }
 
-const signOut = function (formData) {
+const deleteIssue = function (formData) {
   return $.ajax({
-    url: config.apiUrl + '/sign-out',
+    url: config.apiUrl + '/issues',
     method: 'DELETE',
     headers: {
       Authorization: 'Bearer ' + store.user.token
@@ -55,9 +28,95 @@ const signOut = function (formData) {
   })
 }
 
+const updateIssue = function (formData) {
+  return $.ajax({
+    url: config.apiUrl + '/issues/' + formData.issueId,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data: {
+      issue: {
+        text: formData.text
+      }
+    }
+  })
+}
+
+const showIssues = function (formData) {
+  return $.ajax({
+    url: config.apiUrl + '/issues',
+    method: 'GET',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
+const showIssue = function (formData) {
+  return $.ajax({
+    url: config.apiUrl + '/issues/' + formData.issueId,
+    method: 'GET',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
+const createComment = function (formData) {
+  return $.ajax({
+    url: config.apiUrl + '/comments',
+    method: 'POST',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data: {
+      comment: {
+        text: formData.text,
+        issueId: formData.issueId
+      }
+    }
+  })
+}
+
+const deleteComment = function (formData) {
+  return $.ajax({
+    url: config.apiUrl + '/comments/' + formData.commentId,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data: {
+      comment: {
+        issueId: formData.issueId
+      }
+    }
+  })
+}
+
+const updateComment = function (formData) {
+  return $.ajax({
+    url: config.apiUrl + '/comments/' + formData.commentId,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data: {
+      comment: {
+        text: formData.text,
+        issueId: formData.issueId
+      }
+    }
+  })
+}
+
 module.exports = {
-  signUp,
-  signIn,
-  changePass,
-  signOut
+  createIssue,
+  deleteIssue,
+  updateIssue,
+  showIssues,
+  showIssue,
+  createComment,
+  deleteComment,
+  updateComment
 }

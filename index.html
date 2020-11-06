@@ -15,7 +15,10 @@
       <h1>Browser Template</h1>
   <main class="container">
     <div id="auth-display-text">
-      Info
+      
+    </div>
+    <div id="issue-display-text">
+
     </div>
     <div>
       <form id="sign-up">
@@ -51,12 +54,13 @@
       <form id="update-issue">
         <h2>Update Issue</h2>
           <input type="text" name="text" class="form-control" placeholder="Update text" required>
-          <input type="text" name="issue-id" class="form-control" placeholder="Issue ID" required>
+          <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
           <input type="submit" class="btn btn-warning" value="Update Issue">
       </form>
       <form id="delete-issue">
         <h2>Delete issue</h2>
-          <input type="text" name="issue-id" class="form-control" placeholder="Issue ID" required>
+          <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
+          <input type="text" name="commentId" class="form-control" placeholder="Comment ID" required>
           <input type="submit" class="btn btn-danger" value="Delete Issue">
       </form>
       <form id="show-issues">
@@ -65,7 +69,7 @@
       </form>
       <form id="show-issue">
         <h2>Show One Issue</h2>
-          <input type="text" name="issue-id" class="form-control" placeholder="Issue ID" required>
+          <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
           <input type="submit" class="btn btn-danger" value="Show Issue">
       </form>
     </div>
@@ -73,18 +77,18 @@
       <form id="create-comment">
         <h2>Create Comment</h2>
           <input type="text" name="title" class="form-control" placeholder="Title" required>
-          <input type="text" name="issue-id" class="form-control" placeholder="Issue ID" required>
+          <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
           <input type="submit" class="btn btn-primary" value="Create Comment">
       </form>
       <form id="update-comment">
         <h2>Update Comment</h2>
           <input type="text" name="text" class="form-control" placeholder="Update Comment" required>
-          <input type="text" name="issue-id" class="form-control" placeholder="Issue ID" required>
+          <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
           <input type="submit" class="btn btn-warning" value="Update Comment">
       </form>
       <form id="delete-comment">
         <h2>Delete Comment</h2>
-          <input type="text" name="issue-id" class="form-control" placeholder="Issue ID" required>
+          <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
           <input type="submit" class="btn btn-danger" value="Delete Comment">
       </form>
     </div>

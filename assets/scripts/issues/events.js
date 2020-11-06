@@ -18,9 +18,9 @@ const onDeleteIssue = function (event) {
 
   const form = event.target
   const formData = getFormFields(form)
-  api.signIn(formData)
-    .then(ui.onSignInSuccess)
-    .catch(ui.onSignInError)
+  api.deleteIssue(formData)
+    .then(ui.onDeleteIssueSuccess)
+    .catch(ui.onDeleteIssueError)
 }
 
 const onUpdateIssue = function (event) {
@@ -28,9 +28,9 @@ const onUpdateIssue = function (event) {
 
   const form = event.target
   const formData = getFormFields(form)
-  api.changePass(formData)
-    .then(ui.onChangePassSuccess)
-    .catch(ui.onChangePassError)
+  api.updateIssue(formData)
+    .then(ui.onUpdateIssueSuccess)
+    .catch(ui.onUpdateIssueError)
 }
 
 const onShowIssues = function (event) {
@@ -38,9 +38,9 @@ const onShowIssues = function (event) {
 
   const form = event.target
   const formData = getFormFields(form)
-  api.signOut(formData)
-    .then(ui.onSignOutSuccess)
-    .catch(ui.onSignOutError)
+  api.showIssues(formData)
+    .then(ui.onShowIssuesSuccess)
+    .catch(ui.onShowIssuesError)
 }
 
 const onShowIssue = function (event) {
@@ -48,9 +48,9 @@ const onShowIssue = function (event) {
 
   const form = event.target
   const formData = getFormFields(form)
-  api.signOut(formData)
-    .then(ui.onSignOutSuccess)
-    .catch(ui.onSignOutError)
+  api.showIssue(formData)
+    .then(ui.onShowIssueSuccess)
+    .catch(ui.onShowIssueError)
 }
 
 const onCreateComment = function (event) {
@@ -58,22 +58,19 @@ const onCreateComment = function (event) {
 
   const form = event.target
   const formData = getFormFields(form)
-  api.createIssue(formData)
-    .then(ui.onCreateIssueSuccess)
-    .catch(ui.onCreateIssueError)
+  api.createComment(formData)
+    .then(ui.onCreateCommentSuccess)
+    .catch(ui.onCreateCommentError)
 }
 
 const onDeleteComment = function (event) {
   event.preventDefault()
 
-  // turn = true
-  // console.log('login inside ' + turn)
-
   const form = event.target
   const formData = getFormFields(form)
-  api.signIn(formData)
-    .then(ui.onSignInSuccess)
-    .catch(ui.onSignInError)
+  api.deleteComment(formData)
+    .then(ui.onDeleteCommentSuccess)
+    .catch(ui.onDeleteCommentError)
 }
 
 const onUpdateComment = function (event) {
@@ -81,9 +78,9 @@ const onUpdateComment = function (event) {
 
   const form = event.target
   const formData = getFormFields(form)
-  api.changePass(formData)
-    .then(ui.onChangePassSuccess)
-    .catch(ui.onChangePassError)
+  api.updateComment(formData)
+    .then(ui.onUpdateCommentSuccess)
+    .catch(ui.onUpdateCommentError)
 }
 
 module.exports = {
