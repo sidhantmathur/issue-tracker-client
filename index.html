@@ -96,47 +96,65 @@
         </div>
       </div>
 
-      <!-- <div id="issue-view">
-      </div> -->
       <div>
 
-        <form id="show-issue">
+        <!-- <form id="show-issue">
           <h2>Show One Issue</h2>
             <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
             <input type="submit" class="btn btn-danger" value="Show Issue">
-        </form>
+        </form> -->
       </div>
       <div>
-        <form id="create-comment">
+        <!-- <form id="create-comment">
           <h2>Create Comment</h2>
             <textarea type="text" name="text" class="form-control" placeholder="Text"></textarea>
             <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
             <input type="submit" class="btn btn-primary" value="Create Comment">
-        </form>
+        </form> -->
       </div>
     </div>
 
     <div id="user-forms">
+
+      <form id="update-issue">
+        <h2>Update Issue</h2>
+          <textarea type="text" name="text" class="form-control" placeholder="Update text" required></textarea>
+          <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
+          <input type="submit" class="btn btn-warning" value="Update Issue">
+      </form>
+
+      <form id="delete-issue">
+        <h2>Delete issue</h2>
+          <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
+          <input type="submit" class="btn btn-danger" value="Delete Issue">
+      </form>
+
+      <form id="update-comment">
+        <h2>Update Comment</h2>
+          <textarea name="text" class="form-control" placeholder="Update Comment"></textarea>
+          <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
+          <input type="text" name="commentId" class="form-control" placeholder="Comment ID" required>
+          <input type="submit" class="btn btn-warning" value="Update Comment">
+      </form>
+
       <form id="delete-comment">
         <h2>Delete Comment</h2>
           <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
           <input type="text" name="commentId" class="form-control" placeholder="Comment ID" required>
           <input type="submit" class="btn btn-danger" value="Delete Comment">
       </form>
+
       <form id="change-pass">
         <h2>Change Password</h2>
           <input type="password" name="auth[oldPass]" class="form-control" placeholder="Old Password" required>
           <input type="password" name="auth[newPass]" class="form-control" placeholder="New Password" required>
           <input type="submit" class="btn btn-danger" value="Change Password">
       </form>
+
       <form id="sign-out">
         <input type="submit" class="btn btn-danger" value="Sign Out">
       </form>
-      <form id="delete-issue">
-        <h2>Delete issue</h2>
-          <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
-          <input type="submit" class="btn btn-danger" value="Delete Issue">
-      </form>
+
 
         <!-- 
         <form id="show-issues">
@@ -145,20 +163,7 @@
         </form> 
         -->
 
-        <form id="update-comment">
-          <h2>Update Comment</h2>
-            <textarea name="text" class="form-control" placeholder="Update Comment"></textarea>
-            <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
-            <input type="text" name="commentId" class="form-control" placeholder="Comment ID" required>
-            <input type="submit" class="btn btn-warning" value="Update Comment">
-        </form>
 
-        <form id="update-issue">
-          <h2>Update Issue</h2>
-            <textarea type="text" name="text" class="form-control" placeholder="Update text" required></textarea>
-            <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
-            <input type="submit" class="btn btn-warning" value="Update Issue">
-        </form>
 
     </div>
 <!-- 
