@@ -9,6 +9,7 @@ const authEvents = require('./auth/events')
 const issueEvents = require('./issues/events')
 
 $(() => {
+  // $(document).on('load', issueEvents.onShowIssues)
   $('#guest').on('submit', authEvents.onSignIn)
 
   $('#sign-up').on('submit', authEvents.onSignUp)

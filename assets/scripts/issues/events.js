@@ -33,12 +33,13 @@ const onUpdateIssue = function (event) {
     .catch(ui.onUpdateIssueError)
 }
 
-const onShowIssues = function (event) {
-  event.preventDefault()
+// no form except token. Removing forms allows .then after sign in
+const onShowIssues = function () {
+  // event.preventDefault()
 
-  const form = event.target
-  const formData = getFormFields(form)
-  api.showIssues(formData)
+  // const form = event.target
+  // const formData = getFormFields(form)
+  api.showIssues()
     .then(ui.onShowIssuesSuccess)
     .catch(ui.onShowIssuesError)
 }

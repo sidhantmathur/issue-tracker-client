@@ -24,7 +24,7 @@ const onShowIssuesSuccess = function (res) {
   res.issues.forEach(issues => {
     const list = document.createElement('div')
     $(list).addClass('card')
-    $(list).html('<h4>' + issues.title + '</h4><br>' + issues.id + '<br></br>' + issues.text)
+    $(list).html('<div class="card-body"><h4>' + issues.title + '</h4><p>' + issues.text + '</p></div>')
     // + '<button class="btn btn-primary">Comments</button>' + issues.comments)
     $(display).append(list)
     // res.isses.comments.forEach(comments => {
@@ -38,8 +38,23 @@ const onShowIssuesSuccess = function (res) {
 
 const onShowIssueSuccess = function (res) {
   $('#show-issue').trigger('reset')
-  $('#issue-display-text').html(res.issue.text)
   console.log(res)
+  // $('#issue-display-text').html(res.issue.text)
+
+  const display = $('#issue-display-text')
+
+  const card = document.createElement('div')
+  $(card).addClass('card')
+  $(card).html('<div class="card-body"><h4 class="card-title">' + res.issue.title +
+  '</h4><p class="card-text>' + res.issue.text + '</p></div>')
+  $(display).append(card)
+
+  res.issue.comments.forEach(comments => {
+    const list = document.createElement('li')
+    $(list).addClass('list-group-item')
+    $(list).text(comments.text)
+    $(card).append(list)
+  })
 }
 
 const onCreateCommentSuccess = function (res) {
