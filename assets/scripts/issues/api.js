@@ -46,10 +46,10 @@ const updateIssue = function (formData) {
 const showIssues = function (formData) {
   return $.ajax({
     url: config.apiUrl + '/issues',
-    method: 'GET',
-    headers: {
-      Authorization: 'Bearer ' + store.user.token
-    }
+    method: 'GET'//,
+    // headers: {
+    //   Authorization: 'Bearer ' + store.user.token
+    // }
   })
 }
 

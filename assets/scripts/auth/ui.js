@@ -16,6 +16,8 @@ const onSignInSuccess = function (res) {
   $('#sign-in').trigger('reset')
 
   store.user = res.user
+  $('#auth-forms').hide()
+  $('#issue-forms').show()
 }
 
 const onChangePassSuccess = function () {

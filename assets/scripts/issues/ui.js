@@ -46,7 +46,8 @@ const onShowIssueSuccess = function (res) {
   const card = document.createElement('div')
   $(card).addClass('card')
   $(card).html('<div class="card-body"><h4 class="card-title">' + res.issue.title +
-  '</h4><p class="card-text>' + res.issue.text + '</p></div>')
+  '</h4><p class="card-text">' + res.issue.text + '</p><form class="delete-issue"><input type="hidden" name="issueId" value="' +
+  res.issue._id + '"><button type="submit" class="btn btn-danger">Delete Issue</button></form></div>')
   $(display).append(card)
 
   res.issue.comments.forEach(comments => {

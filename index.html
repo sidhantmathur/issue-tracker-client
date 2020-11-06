@@ -12,36 +12,17 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <span class="navbar-brand mb-0 h1">Issue Tracker</span>
+
+      </nav>
+
   <main class="container">
-    <div id="auth-display-text">
-      
-    </div>
-    <div id="issue-display-text">
-
-    </div>
-    <div>
-<!-- 
-      <form class="form-signin">
-        <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <div class="checkbox mb-3">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block mb-3" type="submit">Sign in</button>
-        <a href="#">Forgot Password</a>
-        <br>
-        <a href="#">Sign Up</a>
-        <br>
-        <a href="#">Guest Sign In</a>
-      </form> -->
-
-
+    
+    <div id="auth-forms">
+      <div id="auth-display-text">
+      </div>
       <form id="guest">
         <h2>Guest Sign Up</h2>
         <input type="hidden" class="form-control" name="auth[email]" placeholder="Email" value="a@a.com" required>
@@ -61,67 +42,93 @@
           <input type="password" class="form-control" name="auth[password]" placeholder="Password" required>
           <input type="submit" class="btn btn-primary">
       </form>
-      <form id="change-pass">
-        <h2>Change Password</h2>
-          <input type="password" name="auth[oldPass]" class="form-control" placeholder="Old Password" required>
-          <input type="password" name="auth[newPass]" class="form-control" placeholder="New Password" required>
-          <input type="submit" class="btn btn-danger" value="Change Password">
-      </form>
-      <form id="sign-out">
-        <input type="submit" class="btn btn-danger" value="Sign Out">
-      </form>
     </div>
-    <div>
-      <form id="create-issue">
-        <h2>Create Issue</h2>
-          <input type="text" name="title" class="form-control" placeholder="Title" required>
-          <textarea type="text" name="text" class="form-control" placeholder="Body" required></textarea>
-          <input type="submit" class="btn btn-primary" value="Create Issue">
-      </form>
-      <form id="update-issue">
-        <h2>Update Issue</h2>
-          <textarea type="text" name="text" class="form-control" placeholder="Update text" required></textarea>
-          <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
-          <input type="submit" class="btn btn-warning" value="Update Issue">
-      </form>
-      <form id="delete-issue">
-        <h2>Delete issue</h2>
-          <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
-          <input type="text" name="commentId" class="form-control" placeholder="Comment ID" required>
-          <input type="submit" class="btn btn-danger" value="Delete Issue">
-      </form>
-      <form id="show-issues">
-        <h2>Show All Issues</h2>
-          <input type="submit" class="btn btn-success" value="Show Issues">
-      </form>
-      <form id="show-issue">
-        <h2>Show One Issue</h2>
-          <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
-          <input type="submit" class="btn btn-danger" value="Show Issue">
-      </form>
     </div>
-    <div>
-      <form id="create-comment">
-        <h2>Create Comment</h2>
-          <textarea type="text" name="text" class="form-control" placeholder="Text"></textarea>
-          <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
-          <input type="submit" class="btn btn-primary" value="Create Comment">
-      </form>
-      <form id="update-comment">
-        <h2>Update Comment</h2>
-          <textarea name="text" class="form-control" placeholder="Update Comment"></textarea>
-          <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
-          <input type="text" name="commentId" class="form-control" placeholder="Comment ID" required>
-          <input type="submit" class="btn btn-warning" value="Update Comment">
-      </form>
-      <form id="delete-comment">
-        <h2>Delete Comment</h2>
-          <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
-          <input type="text" name="commentId" class="form-control" placeholder="Comment ID" required>
-          <input type="submit" class="btn btn-danger" value="Delete Comment">
-      </form>
+    <div id="issue-forms">
+      <div id="issue-queue">
+        <div id="issue-display-text">
+        </div>
+      </div>
+      <div id="issue-view">
+      </div>
+      <div>
+        <form id="create-issue">
+          <h2>Create Issue</h2>
+            <input type="text" name="title" class="form-control" placeholder="Title" required>
+            <textarea type="text" name="text" class="form-control" placeholder="Body" required></textarea>
+            <input type="submit" class="btn btn-primary" value="Create Issue">
+        </form>
+        <form id="update-issue">
+          <h2>Update Issue</h2>
+            <textarea type="text" name="text" class="form-control" placeholder="Update text" required></textarea>
+            <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
+            <input type="submit" class="btn btn-warning" value="Update Issue">
+        </form>
+        <!-- <form id="delete-issue">
+          <h2>Delete issue</h2>
+            <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
+            <input type="submit" class="btn btn-danger" value="Delete Issue">
+        </form> -->
+        <!-- <form id="show-issues">
+          <h2>Show All Issues</h2>
+            <input type="submit" class="btn btn-success" value="Show Issues">
+        </form> -->
+        <form id="show-issue">
+          <h2>Show One Issue</h2>
+            <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
+            <input type="submit" class="btn btn-danger" value="Show Issue">
+        </form>
+      </div>
+      <div>
+        <form id="create-comment">
+          <h2>Create Comment</h2>
+            <textarea type="text" name="text" class="form-control" placeholder="Text"></textarea>
+            <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
+            <input type="submit" class="btn btn-primary" value="Create Comment">
+        </form>
+        <form id="update-comment">
+          <h2>Update Comment</h2>
+            <textarea name="text" class="form-control" placeholder="Update Comment"></textarea>
+            <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
+            <input type="text" name="commentId" class="form-control" placeholder="Comment ID" required>
+            <input type="submit" class="btn btn-warning" value="Update Comment">
+        </form>
+        <form id="delete-comment">
+          <h2>Delete Comment</h2>
+            <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
+            <input type="text" name="commentId" class="form-control" placeholder="Comment ID" required>
+            <input type="submit" class="btn btn-danger" value="Delete Comment">
+        </form>
+        <form id="change-pass">
+          <h2>Change Password</h2>
+            <input type="password" name="auth[oldPass]" class="form-control" placeholder="Old Password" required>
+            <input type="password" name="auth[newPass]" class="form-control" placeholder="New Password" required>
+            <input type="submit" class="btn btn-danger" value="Change Password">
+        </form>
+        <form id="sign-out">
+          <input type="submit" class="btn btn-danger" value="Sign Out">
+        </form>
+      </div>
     </div>
-
+<!-- 
+      <form class="form-signin">
+        <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block mb-3" type="submit">Sign in</button>
+        <br>
+        <a href="#">Sign Up</a>
+        <br>
+        <a href="#">Guest Sign In</a>
+      </form> -->
   </main>
     </body>
 </html>

@@ -9,7 +9,8 @@ const authEvents = require('./auth/events')
 const issueEvents = require('./issues/events')
 
 $(() => {
-  // $(document).on('load', issueEvents.onShowIssues)
+  $('#issue-forms').hide()
+  issueEvents.onShowIssues()
   $('#guest').on('submit', authEvents.onSignIn)
 
   $('#sign-up').on('submit', authEvents.onSignUp)
@@ -18,7 +19,7 @@ $(() => {
   $('#sign-out').on('submit', authEvents.onSignOut)
 
   $('#create-issue').on('submit', issueEvents.onCreateIssue)
-  $('#delete-issue').on('submit', issueEvents.onDeleteIssue)
+  $('.delete-issue').on('click', issueEvents.onDeleteIssue)
   $('#update-issue').on('submit', issueEvents.onUpdateIssue)
   $('#show-issues').on('submit', issueEvents.onShowIssues)
   $('#show-issue').on('submit', issueEvents.onShowIssue)
