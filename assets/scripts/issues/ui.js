@@ -5,6 +5,22 @@ const issueEvents = require('./events')
 const onCreateIssueSuccess = function (res) {
   $('#create-issue').trigger('reset')
   console.log(res)
+  const display = $('#issue-display-text')
+  const display2 = $('#comment-display')
+  const list = document.createElement('a')
+  const list2 = document.createElement('div')
+  $(list).addClass('list-group-item list-group-item-action')
+  $(list).attr('data-toggle', 'list')
+  $(list).attr('href', '#list-' + res.issue._id)
+
+  $(list2).addClass('tab-pane fade')
+  $(list2).attr('id', 'list-' + res.issue._id)
+
+  $(list).html('<h4>' + res.issue.title + '</h4><p>' + res.issue.text + '</p>')
+
+  $(list2).html('<form class="create-comments"><h2>Create Comment</h2><textarea type="text" name="text" class="form-control" placeholder="Text"></textarea><input type="hidden" value="' + res.issue._id + '" name="issueId" class="form-control" placeholder="Issue ID" required><input type="submit" class="btn btn-primary" value="Create Comment"></form>')
+  $(display).prepend(list)
+  $(display2.prepend(list2))
 }
 
 const onDeleteIssueSuccess = function (res) {
