@@ -79,7 +79,7 @@ const onShowIssueSuccess = function (res) {
 }
 
 const onCreateCommentSuccess = function (res) {
-  $('.create-comment').trigger('reset')
+  $('.create-comments').trigger('reset')
   console.log(res)
   const display = $('#list-' + res.issue._id)
   const list = document.createElement('li')
