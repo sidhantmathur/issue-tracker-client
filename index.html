@@ -22,6 +22,11 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Posts</a>
           </li>
+          <!-- <li class="nav-item">
+            <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+              Create Issue
+            </a>
+          </li> -->
         </ul>
       </nav>
 
@@ -63,14 +68,29 @@
 
     <div id="issue-forms">
       <h1>Issue Queue</h1>
+      <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        Create Issue
+      </a>
+
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+          <form id="create-issue">
+            <h2>Create Issue</h2>
+              <input type="text" name="title" class="form-control" placeholder="Title" required>
+              <textarea type="text" name="text" class="form-control" placeholder="Body" required></textarea>
+              <input type="submit" class="btn btn-primary" value="Create Issue">
+          </form>
+        </div>
+      </div>
+
       <div class="row">
-        <div class="col-6">
+        <div class="col-4">
           <div id="issue-queue">
             <div class="list-group" id="issue-display-text" role="tablist">
             </div>
           </div>
         </div>
-        <div class="col-6">
+        <div class="col-8">
           <div class="tab-content" id="comment-display">
           </div>
         </div>
@@ -79,12 +99,7 @@
       <!-- <div id="issue-view">
       </div> -->
       <div>
-        <form id="create-issue">
-          <h2>Create Issue</h2>
-            <input type="text" name="title" class="form-control" placeholder="Title" required>
-            <textarea type="text" name="text" class="form-control" placeholder="Body" required></textarea>
-            <input type="submit" class="btn btn-primary" value="Create Issue">
-        </form>
+
         <form id="show-issue">
           <h2>Show One Issue</h2>
             <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>

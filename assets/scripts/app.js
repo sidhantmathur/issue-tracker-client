@@ -30,15 +30,3 @@ $(() => {
   $('#delete-comment').on('submit', issueEvents.onDeleteComment)
   $('#update-comment').on('submit', issueEvents.onUpdateComment)
 })
-
-// $(window).on('load', function () {
-//   $('.create-comments').on('submit', issueEvents.onCreateComment)
-// })
-
-// $(window).on('pageshow', function () {
-//   $('.create-comments').on('submit', issueEvents.onCreateComment)
-// })
-
-// setTimeout(function () {
-//   $('.create-comments').on('submit', issueEvents.onCreateComment)
-// }, 3000)
