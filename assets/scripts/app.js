@@ -26,6 +26,19 @@ $(() => {
   $('#show-issue').on('submit', issueEvents.onShowIssue)
 
   $('#create-comment').on('submit', issueEvents.onCreateComment)
+  $('.create-comments').on('click', issueEvents.onCreateComment)
   $('#delete-comment').on('submit', issueEvents.onDeleteComment)
   $('#update-comment').on('submit', issueEvents.onUpdateComment)
 })
+
+// $(window).on('load', function () {
+//   $('.create-comments').on('submit', issueEvents.onCreateComment)
+// })
+
+// $(window).on('pageshow', function () {
+//   $('.create-comments').on('submit', issueEvents.onCreateComment)
+// })
+
+// setTimeout(function () {
+//   $('.create-comments').on('submit', issueEvents.onCreateComment)
+// }, 3000)

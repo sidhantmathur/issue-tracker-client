@@ -15,53 +15,17 @@
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <span class="navbar-brand mb-0 h1">Issue Tracker</span>
-
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Profile<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Posts</a>
+          </li>
+        </ul>
       </nav>
 
   <main class="container">
-
-    <!-- <div class="row">
-      <div class="col-4">
-        <div class="list-group" role="tablist">
-          <a class="list-group-item list-group-item-action" data-toggle="list" href="#list-5fa42cd7686bead1d175ab8d"><h4>title stuff</h4><p>stufffff</p></a>
-          <a class="list-group-item list-group-item-action" data-toggle="list" href="#list-5fa4ad2e8577470059ee4a41"><h4>asd</h4><p>yiouyiuyioy</p></a>
-        </div>
-      </div>
-      <div class="col-8">
-        <div class="tab-content">
-          <div class="tab-pane fade" id="list-5fa42cd7686bead1d175ab8d">asdfasdf</div>
-          <div class="tab-pane fade" id="list-5fa4ad2e8577470059ee4a41">asdfasdf</div>
-        </div>
-      </div>
-    </div>
-
-<hr>
-<hr> -->
-    <div class="row">
-      <div class="col-4">
-        <div class="list-group" id="issue-display-text" role="tablist">
-
-          <!-- <a class="list-group-item list-group-item-action" data-toggle="list" href="#list-home">Home</a>
-          <a class="list-group-item list-group-item-action" data-toggle="list" href="#list-profile">Profile</a>
-          <a class="list-group-item list-group-item-action" data-toggle="list" href="#list-messages">Messages</a>
-          <a class="list-group-item list-group-item-action" data-toggle="list" href="#list-settings">Settings</a> -->
-
-        </div>
-      </div>
-      <div class="col-8">
-        <div class="tab-content" id="comment-display">
-
-          <!-- <div class="tab-pane fade" id="list-home">im ad Lorem aliqua in cupidatat nisi enim eu nostrud do aliquip veniam minim.</div>
-          <div class="tab-pane fade" id="list-profile">rure non commodo enim culpa commodo veniam incididunt veniam ad.</div>
-          <div class="tab-pane fade" id="list-messages">ectetur et fugiat anim do eiusmod aliquip nulla laborum elit adipisicing pariatur cillum.</div>
-          <div class="tab-pane fade" id="list-settings">im ad Lorem aliqua in cupidatat nisi enim eu nostrud do aliquip veniam minim.</div>
-           -->
-        </div>
-      </div>
-    </div>
-
-
-
     <div id="auth-forms">
       <div id="auth-display-text">
       </div>
@@ -86,24 +50,34 @@
       </form>
     </div>
 
+    <!-- <div class="row">
+      <div class="col-4">
+        <div class="list-group" id="issue-display-text" role="tablist">
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="tab-content" id="comment-display">
+        </div>
+      </div>
+    </div> -->
+
     <div id="issue-forms">
+      <h1>Issue Queue</h1>
       <div class="row">
         <div class="col-6">
           <div id="issue-queue">
-            <h1>Issue Queue</h1>
-            <!-- <div id="issue-display-text" class="list-group" role="tablist">
-            </div> -->
+            <div class="list-group" id="issue-display-text" role="tablist">
+            </div>
           </div>
         </div>
         <div class="col-6">
-          <!-- <div id="comment-display" class="tab-content">
-
-          </div> -->
+          <div class="tab-content" id="comment-display">
+          </div>
         </div>
       </div>
 
-      <div id="issue-view">
-      </div>
+      <!-- <div id="issue-view">
+      </div> -->
       <div>
         <form id="create-issue">
           <h2>Create Issue</h2>

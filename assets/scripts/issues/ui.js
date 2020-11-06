@@ -1,5 +1,5 @@
 'use strict'
-
+const issueEvents = require('./events')
 // const store = require('./../store')
 
 const onCreateIssueSuccess = function (res) {
@@ -38,7 +38,8 @@ const onShowIssuesSuccess = function (res) {
     $(list2).addClass('tab-pane fade')
     $(list2).attr('id', 'list-' + issArr._id)
 
-    // $(list2).text(res.issues.comments)
+    $(list2).html('<form class="create-comments"><h2>Create Comment</h2><textarea type="text" name="text" class="form-control" placeholder="Text"></textarea><input type="text" value="' + issArr._id + '" name="issueId" class="form-control" placeholder="Issue ID" required><input type="submit" class="btn btn-primary" value="Create Comment"></form>')
+    $('.create-comment').on('submit', issueEvents.onCreateComment)
     $(display2).append(list2)
     $(display).append(list)
 
@@ -50,37 +51,9 @@ const onShowIssuesSuccess = function (res) {
       $(list3).addClass('list-group-item')
       $(list3).text(commArr.text)
 
-      // $(list2).text(commArr.text)
-      $(list2).append(list3)
+      $(list2).prepend(list3)
     }
   }
-  // res.issues.forEach(issues => {
-  //   const list = document.createElement('a')
-  //   $(list).addClass('list-group-item list-group-item-action')
-  //   $(list).attr('data-toggle', 'list')
-  //   $(list).attr('href', '#list-' + issues._id)
-  //   $(list).html('<h4>' + issues.title + '</h4><p>' + issues.text + '</p>')
-
-  //   const list2 = document.createElement('div')
-  //   $(list2).addClass('tab-pane fade')
-  //   $(list2).attr('id', 'list-' + issues._id)
-
-  //   $(list2).text(res.issues.comments)
-  //   // res.issues.forEach(comments => {
-  //   //   $(list2).text(comments[0].text)
-  //   // })
-
-  //   $(display2).append(list2)
-
-  //   $(display).append(list)
-
-  //   // res.issue.comments.forEach(comments => {
-  //   //   const list2 = document.createElement('li')
-  //   //   $(list2).addClass('list-group-item')
-  //   //   $(list2).text(comments.text)
-  //   //   $(list).append(list)
-  //   // })
-  // })
 }
 
 const onShowIssueSuccess = function (res) {
@@ -106,8 +79,15 @@ const onShowIssueSuccess = function (res) {
 }
 
 const onCreateCommentSuccess = function (res) {
-  $('#create-comment').trigger('reset')
+  $('.create-comment').trigger('reset')
   console.log(res)
+  const display = $('#list-' + res.issue._id)
+  const list = document.createElement('li')
+  $(list).addClass('list-group-item')
+
+  const lastComment = res.issue.comments[res.issue.comments.length - 1]
+  $(list).text(lastComment.text)
+  $(display).prepend(list)
 }
 
 const onDeleteCommentSuccess = function (res) {

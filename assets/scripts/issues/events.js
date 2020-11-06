@@ -41,6 +41,7 @@ const onShowIssues = function () {
   // const formData = getFormFields(form)
   api.showIssues()
     .then(ui.onShowIssuesSuccess)
+    .then($('.create-comments').on('submit', onCreateComment))
     .catch(ui.onShowIssuesError)
 }
 
