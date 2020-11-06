@@ -1,60 +1,86 @@
 'use strict'
 
-const store = require('./../store')
+// const store = require('./../store')
 
-const onSignUpSuccess = function (res) {
-  $('.alert').show()
-  $('#auth-display-text').text('You Signed Up ' + res.user.email)
-  $('#sign-up').trigger('reset')
+const onCreateIssueSuccess = function (res) {
+  console.log(res)
 }
 
-// consolidate these show/hide ids with a "hidden on sign in class"
-
-const onSignInSuccess = function (res) {
-  $('.alert').show()
-  $('#auth-display-text').text('Sign In Successful ' + res.user.email)
-  $('#sign-in').trigger('reset')
-
-  store.user = res.user
+const onDeleteIssueSuccess = function (res) {
+  console.log(res)
 }
 
-const onChangePassSuccess = function () {
-  $('#auth-display-text').text('You Changed Passwords')
-  $('#change-pass').trigger('reset')
+const onUpdateIssueSuccess = function (res) {
+  console.log(res)
 }
 
-const onSignOutSuccess = function () {
-  $('#auth-display-text').text('You Signed Out')
+const onShowIssuesSuccess = function (res) {
+  console.log(res)
 }
 
-const onSignOutError = function (error) {
-  $('#auth-display-text').text('Error Signing Out: ' + error.statusText + ' Status Code: ' + error.status)
+const onShowIssueSuccess = function (res) {
+  console.log(res)
 }
 
-const onChangePassError = function (error) {
-  $('#auth-display-text').text('Error Changing Password: ' + error.statusText + ' Status Code: ' + error.status)
-  $('#change-pass').trigger('reset')
+const onCreateCommentSuccess = function (res) {
+  console.log(res)
 }
 
-const onSignUpError = function (error) {
-  $('.alert').show()
-  $('#auth-display-text').text('Error Signing Up: ' + error.statusText + ' Status Code: ' + error.status)
-  $('#sign-up').trigger('reset')
+const onDeleteCommentSuccess = function (res) {
+  console.log(res)
 }
 
-const onSignInError = function (error) {
-  $('.alert').show()
-  $('#auth-display-text').text('Error Signing In: ' + error.statusText + ' Status Code: ' + error.status)
-  $('#sign-in').trigger('reset')
+const onUpdateCommentSuccess = function (res) {
+  console.log(res)
+}
+
+const onCreateIssueError = function (error) {
+  console.log(error)
+}
+
+const onDeleteIssueError = function (error) {
+  console.log(error)
+}
+
+const onUpdateIssueError = function (error) {
+  console.log(error)
+}
+
+const onShowIssuesError = function (error) {
+  console.log(error)
+}
+
+const onShowIssueError = function (error) {
+  console.log(error)
+}
+
+const onCreateCommentError = function (error) {
+  console.log(error)
+}
+
+const onDeleteCommentError = function (error) {
+  console.log(error)
+}
+
+const onUpdateCommentError = function (error) {
+  console.log(error)
 }
 
 module.exports = {
-  onSignUpSuccess,
-  onSignInSuccess,
-  onChangePassSuccess,
-  onSignOutSuccess,
-  onSignOutError,
-  onChangePassError,
-  onSignUpError,
-  onSignInError
+  onCreateIssueSuccess,
+  onDeleteIssueSuccess,
+  onUpdateIssueSuccess,
+  onShowIssuesSuccess,
+  onShowIssueSuccess,
+  onCreateCommentSuccess,
+  onDeleteCommentSuccess,
+  onUpdateCommentSuccess,
+  onCreateIssueError,
+  onDeleteIssueError,
+  onUpdateIssueError,
+  onShowIssuesError,
+  onShowIssueError,
+  onCreateCommentError,
+  onDeleteCommentError,
+  onUpdateCommentError
 }

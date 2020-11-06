@@ -12,7 +12,7 @@ const createIssue = function (formData) {
     data: {
       issue: {
         text: formData.text,
-        password: formData.title
+        title: formData.title
       }
     }
   })
