@@ -19,7 +19,49 @@
       </nav>
 
   <main class="container">
-    
+
+    <!-- <div class="row">
+      <div class="col-4">
+        <div class="list-group" role="tablist">
+          <a class="list-group-item list-group-item-action" data-toggle="list" href="#list-5fa42cd7686bead1d175ab8d"><h4>title stuff</h4><p>stufffff</p></a>
+          <a class="list-group-item list-group-item-action" data-toggle="list" href="#list-5fa4ad2e8577470059ee4a41"><h4>asd</h4><p>yiouyiuyioy</p></a>
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="tab-content">
+          <div class="tab-pane fade" id="list-5fa42cd7686bead1d175ab8d">asdfasdf</div>
+          <div class="tab-pane fade" id="list-5fa4ad2e8577470059ee4a41">asdfasdf</div>
+        </div>
+      </div>
+    </div>
+
+<hr>
+<hr> -->
+    <div class="row">
+      <div class="col-4">
+        <div class="list-group" id="issue-display-text" role="tablist">
+
+          <!-- <a class="list-group-item list-group-item-action" data-toggle="list" href="#list-home">Home</a>
+          <a class="list-group-item list-group-item-action" data-toggle="list" href="#list-profile">Profile</a>
+          <a class="list-group-item list-group-item-action" data-toggle="list" href="#list-messages">Messages</a>
+          <a class="list-group-item list-group-item-action" data-toggle="list" href="#list-settings">Settings</a> -->
+
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="tab-content" id="comment-display">
+
+          <!-- <div class="tab-pane fade" id="list-home">im ad Lorem aliqua in cupidatat nisi enim eu nostrud do aliquip veniam minim.</div>
+          <div class="tab-pane fade" id="list-profile">rure non commodo enim culpa commodo veniam incididunt veniam ad.</div>
+          <div class="tab-pane fade" id="list-messages">ectetur et fugiat anim do eiusmod aliquip nulla laborum elit adipisicing pariatur cillum.</div>
+          <div class="tab-pane fade" id="list-settings">im ad Lorem aliqua in cupidatat nisi enim eu nostrud do aliquip veniam minim.</div>
+           -->
+        </div>
+      </div>
+    </div>
+
+
+
     <div id="auth-forms">
       <div id="auth-display-text">
       </div>
@@ -43,12 +85,23 @@
           <input type="submit" class="btn btn-primary">
       </form>
     </div>
-    </div>
+
     <div id="issue-forms">
-      <div id="issue-queue">
-        <div id="issue-display-text">
+      <div class="row">
+        <div class="col-6">
+          <div id="issue-queue">
+            <h1>Issue Queue</h1>
+            <!-- <div id="issue-display-text" class="list-group" role="tablist">
+            </div> -->
+          </div>
+        </div>
+        <div class="col-6">
+          <!-- <div id="comment-display" class="tab-content">
+
+          </div> -->
         </div>
       </div>
+
       <div id="issue-view">
       </div>
       <div>
@@ -58,21 +111,6 @@
             <textarea type="text" name="text" class="form-control" placeholder="Body" required></textarea>
             <input type="submit" class="btn btn-primary" value="Create Issue">
         </form>
-        <form id="update-issue">
-          <h2>Update Issue</h2>
-            <textarea type="text" name="text" class="form-control" placeholder="Update text" required></textarea>
-            <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
-            <input type="submit" class="btn btn-warning" value="Update Issue">
-        </form>
-        <!-- <form id="delete-issue">
-          <h2>Delete issue</h2>
-            <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
-            <input type="submit" class="btn btn-danger" value="Delete Issue">
-        </form> -->
-        <!-- <form id="show-issues">
-          <h2>Show All Issues</h2>
-            <input type="submit" class="btn btn-success" value="Show Issues">
-        </form> -->
         <form id="show-issue">
           <h2>Show One Issue</h2>
             <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
@@ -86,6 +124,38 @@
             <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
             <input type="submit" class="btn btn-primary" value="Create Comment">
         </form>
+      </div>
+    </div>
+
+    <div id="user-forms">
+      <form id="delete-comment">
+        <h2>Delete Comment</h2>
+          <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
+          <input type="text" name="commentId" class="form-control" placeholder="Comment ID" required>
+          <input type="submit" class="btn btn-danger" value="Delete Comment">
+      </form>
+      <form id="change-pass">
+        <h2>Change Password</h2>
+          <input type="password" name="auth[oldPass]" class="form-control" placeholder="Old Password" required>
+          <input type="password" name="auth[newPass]" class="form-control" placeholder="New Password" required>
+          <input type="submit" class="btn btn-danger" value="Change Password">
+      </form>
+      <form id="sign-out">
+        <input type="submit" class="btn btn-danger" value="Sign Out">
+      </form>
+      <form id="delete-issue">
+        <h2>Delete issue</h2>
+          <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
+          <input type="submit" class="btn btn-danger" value="Delete Issue">
+      </form>
+
+        <!-- 
+        <form id="show-issues">
+          <h2>Show All Issues</h2>
+            <input type="submit" class="btn btn-success" value="Show Issues">
+        </form> 
+        -->
+
         <form id="update-comment">
           <h2>Update Comment</h2>
             <textarea name="text" class="form-control" placeholder="Update Comment"></textarea>
@@ -93,22 +163,14 @@
             <input type="text" name="commentId" class="form-control" placeholder="Comment ID" required>
             <input type="submit" class="btn btn-warning" value="Update Comment">
         </form>
-        <form id="delete-comment">
-          <h2>Delete Comment</h2>
+
+        <form id="update-issue">
+          <h2>Update Issue</h2>
+            <textarea type="text" name="text" class="form-control" placeholder="Update text" required></textarea>
             <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
-            <input type="text" name="commentId" class="form-control" placeholder="Comment ID" required>
-            <input type="submit" class="btn btn-danger" value="Delete Comment">
+            <input type="submit" class="btn btn-warning" value="Update Issue">
         </form>
-        <form id="change-pass">
-          <h2>Change Password</h2>
-            <input type="password" name="auth[oldPass]" class="form-control" placeholder="Old Password" required>
-            <input type="password" name="auth[newPass]" class="form-control" placeholder="New Password" required>
-            <input type="submit" class="btn btn-danger" value="Change Password">
-        </form>
-        <form id="sign-out">
-          <input type="submit" class="btn btn-danger" value="Sign Out">
-        </form>
-      </div>
+
     </div>
 <!-- 
       <form class="form-signin">

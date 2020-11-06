@@ -18,6 +18,7 @@ const onSignInSuccess = function (res) {
   store.user = res.user
   $('#auth-forms').hide()
   $('#issue-forms').show()
+  $('#user-forms').show()
 }
 
 const onChangePassSuccess = function () {
@@ -27,6 +28,10 @@ const onChangePassSuccess = function () {
 
 const onSignOutSuccess = function () {
   $('#auth-display-text').text('You Signed Out')
+
+  $('#auth-forms').show()
+  $('#issue-forms').hide()
+  $('#user-forms').hide()
 }
 
 const onSignOutError = function (error) {

@@ -20,20 +20,67 @@ const onUpdateIssueSuccess = function (res) {
 const onShowIssuesSuccess = function (res) {
   $('#show-issues').trigger('reset')
   console.log(res)
+  console.log(res.issues)
   const display = $('#issue-display-text')
-  res.issues.forEach(issues => {
-    const list = document.createElement('div')
-    $(list).addClass('card')
-    $(list).html('<div class="card-body"><h4>' + issues.title + '</h4><p>' + issues.text + '</p></div>')
-    // + '<button class="btn btn-primary">Comments</button>' + issues.comments)
+  const display2 = $('#comment-display')
+
+  for (let i = 0; i < res.issues.length; i++) {
+    const issArr = res.issues[i]
+    console.log(issArr)
+
+    const list = document.createElement('a')
+    $(list).addClass('list-group-item list-group-item-action')
+    $(list).attr('data-toggle', 'list')
+    $(list).attr('href', '#list-' + issArr._id)
+    $(list).html('<h4>' + issArr.title + '</h4><p>' + issArr.text + '</p>')
+
+    const list2 = document.createElement('div')
+    $(list2).addClass('tab-pane fade')
+    $(list2).attr('id', 'list-' + issArr._id)
+
+    // $(list2).text(res.issues.comments)
+    $(display2).append(list2)
     $(display).append(list)
-    // res.isses.comments.forEach(comments => {
-    //   const list2 = document.createElement('li')
-    //   $(list2).addClass('list-group-item')
-    //   $(list2).text(issues.comments.text)
-    //   $(list).append(list2)
-    // })
-  })
+
+    for (let i = 0; i < issArr.comments.length; i++) {
+      const commArr = issArr.comments[i]
+      console.log(commArr)
+
+      const list3 = document.createElement('li')
+      $(list3).addClass('list-group-item')
+      $(list3).text(commArr.text)
+
+      // $(list2).text(commArr.text)
+      $(list2).append(list3)
+    }
+  }
+  // res.issues.forEach(issues => {
+  //   const list = document.createElement('a')
+  //   $(list).addClass('list-group-item list-group-item-action')
+  //   $(list).attr('data-toggle', 'list')
+  //   $(list).attr('href', '#list-' + issues._id)
+  //   $(list).html('<h4>' + issues.title + '</h4><p>' + issues.text + '</p>')
+
+  //   const list2 = document.createElement('div')
+  //   $(list2).addClass('tab-pane fade')
+  //   $(list2).attr('id', 'list-' + issues._id)
+
+  //   $(list2).text(res.issues.comments)
+  //   // res.issues.forEach(comments => {
+  //   //   $(list2).text(comments[0].text)
+  //   // })
+
+  //   $(display2).append(list2)
+
+  //   $(display).append(list)
+
+  //   // res.issue.comments.forEach(comments => {
+  //   //   const list2 = document.createElement('li')
+  //   //   $(list2).addClass('list-group-item')
+  //   //   $(list2).text(comments.text)
+  //   //   $(list).append(list)
+  //   // })
+  // })
 }
 
 const onShowIssueSuccess = function (res) {
