@@ -10,6 +10,7 @@ const onCreateIssue = function (event) {
   const formData = getFormFields(form)
   api.createIssue(formData)
     .then(ui.onCreateIssueSuccess)
+    .then(addCreateListener)
     .catch(ui.onCreateIssueError)
 }
 
