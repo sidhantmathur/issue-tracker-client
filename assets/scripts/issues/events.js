@@ -33,6 +33,10 @@ const onUpdateIssue = function (event) {
     .catch(ui.onUpdateIssueError)
 }
 
+const addCreateListener = function () {
+  $('.create-comments').on('submit', onCreateComment)
+}
+
 // no form except token. Removing forms allows .then after sign in
 const onShowIssues = function () {
   // event.preventDefault()
@@ -41,7 +45,6 @@ const onShowIssues = function () {
   // const formData = getFormFields(form)
   api.showIssues()
     .then(ui.onShowIssuesSuccess)
-    .then($('.create-comments').on('submit', onCreateComment))
     .catch(ui.onShowIssuesError)
 }
 
@@ -93,5 +96,6 @@ module.exports = {
   onShowIssue,
   onCreateComment,
   onDeleteComment,
-  onUpdateComment
+  onUpdateComment,
+  addCreateListener
 }
