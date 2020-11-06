@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Issue Tracker</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,7 +12,6 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
   <main class="container">
     <div id="auth-display-text">
       
@@ -21,6 +20,12 @@
 
     </div>
     <div>
+      <form id="guest">
+        <h2>Guest Sign Up</h2>
+        <input type="hidden" class="form-control" name="auth[email]" placeholder="Email" value="a@a.com" required>
+        <input type="hidden" class="form-control" name="auth[password]" placeholder="Password" value="a" required>
+        <input type="submit" class="btn btn-primary">
+      </form>
       <form id="sign-up">
         <h2>Sign Up</h2>
           <input type="email" class="form-control" name="auth[email]" placeholder="Email" required>
@@ -48,12 +53,12 @@
       <form id="create-issue">
         <h2>Create Issue</h2>
           <input type="text" name="title" class="form-control" placeholder="Title" required>
-          <input type="text" name="text" class="form-control" placeholder="Body" required>
+          <textarea type="text" name="text" class="form-control" placeholder="Body" required></textarea>
           <input type="submit" class="btn btn-primary" value="Create Issue">
       </form>
       <form id="update-issue">
         <h2>Update Issue</h2>
-          <input type="text" name="text" class="form-control" placeholder="Update text" required>
+          <textarea type="text" name="text" class="form-control" placeholder="Update text" required></textarea>
           <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
           <input type="submit" class="btn btn-warning" value="Update Issue">
       </form>
@@ -76,19 +81,21 @@
     <div>
       <form id="create-comment">
         <h2>Create Comment</h2>
-          <input type="text" name="text" class="form-control" placeholder="Title" required>
+          <textarea type="text" name="text" class="form-control" placeholder="Text"></textarea>
           <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
           <input type="submit" class="btn btn-primary" value="Create Comment">
       </form>
       <form id="update-comment">
         <h2>Update Comment</h2>
-          <input type="text" name="text" class="form-control" placeholder="Update Comment" required>
+          <textarea name="text" class="form-control" placeholder="Update Comment"></textarea>
           <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
+          <input type="text" name="commentId" class="form-control" placeholder="Comment ID" required>
           <input type="submit" class="btn btn-warning" value="Update Comment">
       </form>
       <form id="delete-comment">
         <h2>Delete Comment</h2>
           <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
+          <input type="text" name="commentId" class="form-control" placeholder="Comment ID" required>
           <input type="submit" class="btn btn-danger" value="Delete Comment">
       </form>
     </div>

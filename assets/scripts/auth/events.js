@@ -16,9 +16,6 @@ const onSignUp = function (event) {
 const onSignIn = function (event) {
   event.preventDefault()
 
-  // turn = true
-  // console.log('login inside ' + turn)
-
   const form = event.target
   const formData = getFormFields(form)
   api.signIn(formData)
