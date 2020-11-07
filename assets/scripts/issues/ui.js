@@ -16,7 +16,7 @@ const onCreateIssueSuccess = function (res) {
   $(list2).addClass('tab-pane fade')
   $(list2).attr('id', 'list-' + res.issue._id)
 
-  $(list).html('<h4>' + res.issue.title + '</h4>' + '<p style="white-space: pre-line;">' + res.issue.text + '</p>')
+  $(list).html('<h4>' + res.issue.title + '</h4>' + '<p>' + res.issue.text + '</p>')
 
   $(list2).html('<form class="create-comments"><h2>Create Comment</h2><textarea type="text" name="text" class="form-control" placeholder="Text"></textarea><input type="hidden" value="' + res.issue._id + '" name="issueId" class="form-control" placeholder="Issue ID" required><input type="submit" class="btn btn-primary" value="Create Comment"></form>')
   $(display).prepend(list)
@@ -48,7 +48,7 @@ const onShowIssuesSuccess = function (res) {
     $(list).addClass('list-group-item list-group-item-action')
     $(list).attr('data-toggle', 'list')
     $(list).attr('href', '#list-' + issArr._id)
-    $(list).html('<h4>' + issArr.title + '</h4><p style="white-space: pre-line;">' + issArr.text + '</p>')
+    $(list).html('<h4>' + issArr.title + '</h4><p>' + issArr.text + '</p>')
 
     const list2 = document.createElement('div')
     $(list2).addClass('tab-pane fade')
@@ -89,7 +89,7 @@ const onShowIssueSuccess = function (res) {
   res.issue.comments.forEach(comments => {
     const list = document.createElement('li')
     $(list).addClass('list-group-item')
-    $(list).text(comments.text)
+    $(list).html('<p>' + comments.text + '</p>')
     $(card).append(list)
   })
 }
@@ -102,7 +102,7 @@ const onCreateCommentSuccess = function (res) {
   $(list).addClass('list-group-item')
 
   const lastComment = res.issue.comments[res.issue.comments.length - 1]
-  $(list).text(lastComment.text)
+  $(list).html('<p>' + lastComment.text + '</p>')
   $(display).prepend(list)
 }
 
