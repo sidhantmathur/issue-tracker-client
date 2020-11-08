@@ -1,6 +1,8 @@
+/* eslint-disable indent */
 'use strict'
 const issueEvents = require('./events')
 // const store = require('./../store')
+// eslint-disable-next-line no-unused-vars
 const pagination = require('paginationjs')
 
 const onCreateIssueSuccess = function (res) {
@@ -19,7 +21,8 @@ const onCreateIssueSuccess = function (res) {
 
   $(list).html('<h4>' + res.issue.title + '</h4>' + '<p>' + res.issue.text + '</p>')
 
-  $(list2).html('<form class="create-comments"><h2>Create Comment</h2><textarea type="text" name="text" class="form-control" placeholder="Text"></textarea><input type="hidden" value="' + res.issue._id + '" name="issueId" class="form-control" placeholder="Issue ID" required><input type="submit" class="btn btn-primary" value="Create Comment"></form>')
+  $(list2).html('<form class="create-comments"><h2>Create Comment</h2><textarea type="text" name="text" class="form-control" placeholder="Text"></textarea><input type="hidden" value="' +
+  res.issue._id + '" name="issueId" class="form-control" placeholder="Issue ID" required><input type="submit" class="btn btn-primary" value="Create Comment"></form>')
   $(display).prepend(list)
   $(display2.prepend(list2))
 }
@@ -38,7 +41,7 @@ const onShowIssuesSuccess = function (res) {
   $('#show-issues').trigger('reset')
   console.log(res)
   console.log(res.issues)
-  const display = $('#issue-display-text')
+  const display = $('#pagination-issue-display-text')
   const display2 = $('#comment-display')
 
   for (let i = 0; i < res.issues.length; i++) {
@@ -72,35 +75,62 @@ const onShowIssuesSuccess = function (res) {
     }
   }
 
-  $(function () {
-    (function (name) {
-      const container = $('#pagination-' + name)
-      container.pagination({
-        dataSource: res.issues,
-        locator: res.issues,
-        pageSize: 5,
-        showPageNumbers: true,
-        showPrevious: true,
-        showNext: true,
-        showNavigator: true,
-        showFirstOnEllipsisShow: true,
-        showLastOnEllipsisShow: true,
-        callback: function (response, pagination) {
-          console.log(res.issues.length, response, pagination)
-          let dataHtml = '<ul>'
+  // $(function () {
+  //   (function (name) {
+  //     const container = $('#pagination-' + name)
+  //     container.pagination({
+  //       dataSource: res.issues,
+  //       locator: res.issues,
+  //       pageSize: 2,
+  //       showPageNumbers: true,
+  //       showPrevious: true,
+  //       showNext: true,
+  //       showNavigator: true,
+  //       showFirstOnEllipsisShow: true,
+  //       showLastOnEllipsisShow: true,
+  //       className: 'paginationjs-theme-blue',
+  //       callback: function (response, pagination) {
+  //         console.log(response, pagination)
+  //         display.empty()
+  //         for (let i = 0; i < response.length; i++) {
+  //           const issArr = response[i]
+  //           // console.log(issArr)
 
-          $.each(response, function (i) {
-            dataHtml += '<li>' + response[i].title + '</li>'
-          })
+  //           const list = '<a class="list-group-item list-group-item-action" data-toggle="list" href="#list-' + issArr._id + '"><h4>' + issArr.title + '</h4><p>' + issArr.text + '</p>'
+  //           const list2 = '<div class="tab-pane fade" id="list-' + issArr._id + '">' + '<form class="create-comments"><h2>Create Comment</h2><textarea type="text" name="text" class="form-control" placeholder="Text"></textarea><input type="hidden" value="' + issArr._id + '" name="issueId" class="form-control" placeholder="Issue ID" required><input type="submit" class="btn btn-primary" value="Create Comment"></form>'
 
-          dataHtml += '</ul>'
+  //           $('.create-comment').on('submit', issueEvents.onCreateComment)
+  //           $(display2).append(list2)
+  //           $(display).append(list)
 
-          container.prev().html(dataHtml)
-        }
-      })
-    })('issue-display-text')
-  })
+  //           for (let i = 0; i < issArr.comments.length; i++) {
+  //             const commArr = issArr.comments[i]
+
+  //             const list3 = '<li class="list-group-item">' + commArr.text + '</li>'
+
+  //             $(list2).prepend(list3)
+  //             container.prev().html(list3)
+  //           }
+  //           container.prev().html(list)
+  //           container.prev().html(list2)
+  //         }
 }
+        // callback: function (response, pagination) {
+        //   console.log(res.issues.length, response, pagination)
+        //   let dataHtml = '<ul>'
+
+        //   $.each(response, function (i) {
+        //     dataHtml += '<li>' + response[i].title + '</li>'
+        //   })
+
+        //   dataHtml += '</ul>'
+
+        //   container.prev().html(dataHtml)
+        // }
+  //     })
+  //   })('display')
+  // })
+// }
 
 const onShowIssueSuccess = function (res) {
   $('#show-issue').trigger('reset')

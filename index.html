@@ -55,17 +55,6 @@
       </form>
     </div>
 
-    <!-- <div class="row">
-      <div class="col-4">
-        <div class="list-group" id="issue-display-text" role="tablist">
-        </div>
-      </div>
-      <div class="col-8">
-        <div class="tab-content" id="comment-display">
-        </div>
-      </div>
-    </div> -->
-
     <div id="issue-forms">
       <h1>Issue Queue</h1>
       <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -83,41 +72,19 @@
         </div>
       </div>
 
+      <!-- MAIN DISPLAY -->
+
       <div class="row">
-        <input type='hidden' id='current_page' />
-<input type='hidden' id='show_per_page' />
         <div class="col-5">
-          <div id="issue-queue">
-            <div class="data-container"></div>
-            <div id="pagination-issue-display-text"></div>
-            <div class="list-group" id="issue-display-text" role="tablist">
-            </div>
-          </div>
+          <div class="list-group data-container" id="pagination-issue-display-text" role="tablist"></div>
+          <div id="pagination-display" class="paginationjs"></div>
         </div>
         <div class="col-7">
-          <div class="tab-content" id="comment-display">
-          </div>
+          <div class="tab-content" id="comment-display"></div>
         </div>
-      </div>
-      <div id='page_navigation'></div>
-
-      <div>
-
-        <!-- <form id="show-issue">
-          <h2>Show One Issue</h2>
-            <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
-            <input type="submit" class="btn btn-danger" value="Show Issue">
-        </form> -->
-      </div>
-      <div>
-        <!-- <form id="create-comment">
-          <h2>Create Comment</h2>
-            <textarea type="text" name="text" class="form-control" placeholder="Text"></textarea>
-            <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
-            <input type="submit" class="btn btn-primary" value="Create Comment">
-        </form> -->
-      </div>
     </div>
+
+
 
     <div id="user-forms">
 
