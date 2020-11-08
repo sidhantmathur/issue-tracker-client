@@ -1,6 +1,7 @@
 'use strict'
 const issueEvents = require('./events')
 // const store = require('./../store')
+const pagination = require('paginationjs')
 
 const onCreateIssueSuccess = function (res) {
   $('#create-issue').trigger('reset')
@@ -70,6 +71,35 @@ const onShowIssuesSuccess = function (res) {
       $(list2).prepend(list3)
     }
   }
+
+  $(function () {
+    (function (name) {
+      const container = $('#pagination-' + name)
+      container.pagination({
+        dataSource: res.issues,
+        locator: res.issues,
+        pageSize: 5,
+        showPageNumbers: true,
+        showPrevious: true,
+        showNext: true,
+        showNavigator: true,
+        showFirstOnEllipsisShow: true,
+        showLastOnEllipsisShow: true,
+        callback: function (response, pagination) {
+          console.log(res.issues.length, response, pagination)
+          let dataHtml = '<ul>'
+
+          $.each(response, function (i) {
+            dataHtml += '<li>' + response[i].title + '</li>'
+          })
+
+          dataHtml += '</ul>'
+
+          container.prev().html(dataHtml)
+        }
+      })
+    })('issue-display-text')
+  })
 }
 
 const onShowIssueSuccess = function (res) {

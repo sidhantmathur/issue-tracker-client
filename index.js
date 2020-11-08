@@ -14,3 +14,5 @@ require('./assets/scripts/app.js')
 
 // styles
 require('./assets/styles/index.scss')
+
+require('infinite-scroll')
