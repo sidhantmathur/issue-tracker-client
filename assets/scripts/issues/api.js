@@ -20,7 +20,7 @@ const createIssue = function (formData) {
 
 const deleteIssue = function (formData) {
   return $.ajax({
-    url: config.apiUrl + '/issues',
+    url: config.apiUrl + '/issues/' + formData.issueId,
     method: 'DELETE',
     headers: {
       Authorization: 'Bearer ' + store.user.token

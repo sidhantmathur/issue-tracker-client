@@ -15,19 +15,19 @@
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <span class="navbar-brand mb-0 h1">Issue Tracker</span>
-        <ul class="navbar-nav mr-auto">
+        <!-- <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#" id="profile">Profile</a>
+            <a class="nav-link" href="#" id="show-profile">Profile</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Posts</a>
           </li>
-          <!-- <li class="nav-item">
+          <li class="nav-item">
             <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
               Create Issue
             </a>
-          </li> -->
-        </ul>
+          </li>
+        </ul> -->
       </nav>
 
   <main class="container">
@@ -72,15 +72,15 @@
         </div>
       </div>
       <br>
-      <!-- <button class="btn btn-primary show-issues">Refresh</button> -->
+
+      <button class="btn btn-primary show-issues">Refresh</button>
+      <button class="btn btn-primary" id="show-profile">Profile</button>
+      <br>
       <button class="btn btn-primary prev">Prev</button>
       <button class="btn btn-primary next">Next</button>
+      <div class="list group" id="user-issues" role="tablist"></div>
 
-      <!-- MAIN DISPLAY -->
-
-      <div class="list group" id="user-display" role="tablist"></div>
-
-      <div class="row">
+      <div class="row" id="issue-queue">
         <div class="col-5">
           <div class="list-group data-container" id="issue-display-text" role="tablist"></div>
           <button class="btn btn-primary prev">Prev</button>

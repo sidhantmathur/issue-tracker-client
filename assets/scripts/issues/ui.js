@@ -49,6 +49,9 @@ const onShowIssuesSuccess = function (res) {
   const display = $('#issue-display-text')
   const display2 = $('#comment-display')
 
+  $('#user-issues').hide()
+  $('#issue-queue').show()
+
   $(display).empty()
   $(display2).empty()
 
@@ -187,6 +190,24 @@ const onUpdateCommentError = function (error) {
 
 const onShowProfileSuccess = function (res) {
   console.log(res)
+  const display = $('#user-issues')
+
+  $('#issue-queue').hide()
+
+  $(display).show()
+
+  console.log(res)
+
+  $(display).empty()
+
+  for (let i = 0; i < res.issues.length; i++) {
+    const issArr = res.issues[i]
+
+    const list = document.createElement('li')
+    $(list).addClass('list-group-item')
+    $(list).html('<h4>' + issArr.title + '</h4><p>' + issArr.text + '</p>' + '<form class="delete-issues"><input type="hidden" name="issueId" value="' + issArr._id + '"><input type="submit" value="Delete Issue" class="btn btn-danger"></form>')
+    $(display).append(list)
+  }
 }
 const onShowProfileError = function (error) {
   console.log(error)

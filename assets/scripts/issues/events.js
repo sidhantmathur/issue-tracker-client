@@ -11,7 +11,7 @@ const onCreateIssue = function (event) {
   const formData = getFormFields(form)
   api.createIssue(formData)
     .then(ui.onCreateIssueSuccess)
-    .then(addCreateListener)
+    .then(addQueueListeners)
     .catch(ui.onCreateIssueError)
 }
 
@@ -35,9 +35,13 @@ const onUpdateIssue = function (event) {
     .catch(ui.onUpdateIssueError)
 }
 
-const addCreateListener = function () {
+const addQueueListeners = function () {
   $('.create-comments').on('submit', onCreateComment)
   $('.delete-comments').on('submit', onDeleteComment)
+}
+
+const addProfileListeners = function () {
+  $('.delete-issues').on('submit', onDeleteIssue)
 }
 
 // const addChecker = function () {
@@ -112,6 +116,7 @@ const onShowProfile = function (event) {
   const formData = getFormFields(form)
   api.showProfile(formData)
     .then(ui.onShowProfileSuccess)
+    .then(addProfileListeners)
     .catch(ui.onShowProfileError)
 }
 
@@ -167,7 +172,8 @@ module.exports = {
   onCreateComment,
   onDeleteComment,
   onUpdateComment,
-  addCreateListener,
+  addQueueListeners,
+  addProfileListeners,
   onNext,
   onPrev,
   onShowProfile

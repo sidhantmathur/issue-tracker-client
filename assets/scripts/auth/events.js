@@ -22,7 +22,7 @@ const onSignIn = function (event) {
   api.signIn(formData)
     .then(ui.onSignInSuccess)
     .then(issueEvents.onShowIssues())
-    .then(issueEvents.addCreateListener)
+    .then(issueEvents.addQueueListeners)
     .catch(ui.onSignInError)
 }
 

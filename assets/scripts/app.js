@@ -20,13 +20,18 @@ $(() => {
   $('#sign-out').on('submit', authEvents.onSignOut)
 
   $('#create-issue').on('submit', issueEvents.onCreateIssue)
-  $('.delete-issue').on('click', issueEvents.onDeleteIssue)
+
+  $('.delete-issues').on('submit', issueEvents.onDeleteIssue)
+  $('#delete-issue').on('submit', issueEvents.onDeleteIssue)
+
   $('#update-issue').on('submit', issueEvents.onUpdateIssue)
+
   $('.show-issues').on('click', issueEvents.onShowIssues)
   $('#show-issue').on('submit', issueEvents.onShowIssue)
 
   $('.create-comments').on('submit', issueEvents.onCreateComment)
-  // $('#delete-comment').on('submit', issueEvents.onDeleteComment)
+
+  $('#delete-comment').on('submit', issueEvents.onDeleteComment)
   $('.delete-comments').on('submit', issueEvents.onDeleteComment)
 
   $('#update-comment').on('submit', issueEvents.onUpdateComment)
@@ -34,5 +39,5 @@ $(() => {
   $('.next').on('click', issueEvents.onNext)
   $('.prev').on('click', issueEvents.onPrev)
 
-  $('#profile').on('click', issueEvents.onShowProfile)
+  $('#show-profile').on('click', issueEvents.onShowProfile)
 })
