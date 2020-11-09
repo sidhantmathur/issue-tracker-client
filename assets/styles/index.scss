@@ -17,6 +17,14 @@ a p {
   white-space: pre-line;
 }
 
+.list-group a {
+  display: none;
+}
+
+.list-group a:nth-child(-n+11) {
+    display: block;
+}
+
 // .paginationjs {
 //   margin-bottom: 10px;
 //   margin-top: 10px;

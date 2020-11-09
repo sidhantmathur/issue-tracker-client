@@ -38,15 +38,22 @@ const onUpdateIssueSuccess = function (res) {
 }
 
 const onShowIssuesSuccess = function (res) {
-  $('#show-issues').trigger('reset')
+  // $('#show-issues').trigger('reset')
+
   console.log(res)
-  console.log(res.issues)
+  // console.log(res.issues)
   const display = $('#pagination-issue-display-text')
   const display2 = $('#comment-display')
 
+  // $(display).empty()
+  // $(display2).empty()
+
+  // const thing = res.issues.slice(0, 5)
+
+  // console.log(thing)
+
   for (let i = 0; i < res.issues.length; i++) {
     const issArr = res.issues[i]
-    console.log(issArr)
 
     const list = document.createElement('a')
     $(list).addClass('list-group-item list-group-item-action')
@@ -65,7 +72,7 @@ const onShowIssuesSuccess = function (res) {
 
     for (let i = 0; i < issArr.comments.length; i++) {
       const commArr = issArr.comments[i]
-      console.log(commArr)
+      // console.log(commArr)
 
       const list3 = document.createElement('li')
       $(list3).addClass('list-group-item')
@@ -74,6 +81,22 @@ const onShowIssuesSuccess = function (res) {
       $(list2).prepend(list3)
     }
   }
+
+  // let selectedIndex;
+  // let pagingList
+
+  // let pagesNumber = res.issues.length / 10
+  // const pagesNumberRemainder = pagesNumber % 1
+  // const pagesNumberWithoutRemainder = Math.floor(pagesNumber)
+  // if (pagesNumberRemainder > 0) {
+  //   pagesNumber = Number(pagesNumberWithoutRemainder) + 1
+  // }
+  // let issuesPages = Array(pagesNumber)
+  //   .fill(1)
+  //   .map((x, i) => i + 1)
+  // let startIndex = 0
+  // let endIndex = 10
+  // let selectedPage = 1
 
   // $(function () {
   //   (function (name) {

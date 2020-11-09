@@ -89,6 +89,27 @@ const onUpdateComment = function (event) {
     .catch(ui.onUpdateCommentError)
 }
 
+let showIndex = 0
+
+const onNext = function () {
+  if ($('.list-group').children(':visible').length < 10) {
+    console.log('no more')
+  } else {
+    $('.list-group a').css('display', 'none')
+    showIndex += 5
+    $('.list-group a:nth-child(n+' + showIndex + ')').css('display', 'block')
+  }
+}
+const onPrev = function () {
+  if (showIndex <= 0) {
+    console.log('no more')
+  } else {
+    $('.list-group a').css('display', 'none')
+    showIndex -= 5
+    $('.list-group a:nth-child(n+' + showIndex + ')').css('display', 'block')
+  }
+}
+
 module.exports = {
   onCreateIssue,
   onDeleteIssue,
@@ -98,5 +119,7 @@ module.exports = {
   onCreateComment,
   onDeleteComment,
   onUpdateComment,
-  addCreateListener
+  addCreateListener,
+  onNext,
+  onPrev
 }
