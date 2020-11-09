@@ -57,7 +57,7 @@ const onShowIssuesSuccess = function (res) {
     $(list).addClass('list-group-item list-group-item-action')
     $(list).attr('data-toggle', 'list')
     $(list).attr('href', '#list-' + issArr._id)
-    $(list).html('<h4>' + issArr.title + '</h4><p>' + issArr.text + '</p>')
+    $(list).html('<h6>' + issArr.owner + '</h6><h4>' + issArr.title + '</h4><p>' + issArr.text + '</p>')
 
     const list2 = document.createElement('div')
     $(list2).addClass('tab-pane fade')
@@ -74,7 +74,7 @@ const onShowIssuesSuccess = function (res) {
 
       const list3 = document.createElement('li')
       $(list3).addClass('list-group-item')
-      $(list3).text(commArr.text)
+      $(list3).html('<h6>' + commArr.owner + '</h6><p>' + commArr.text + '</p>')
 
       $(list2).prepend(list3)
     }
@@ -165,6 +165,13 @@ const onUpdateCommentError = function (error) {
   console.log(error)
 }
 
+const onShowProfileSuccess = function (res) {
+  console.log(res)
+}
+const onShowProfileError = function (error) {
+  console.log(error)
+}
+
 module.exports = {
   onCreateIssueSuccess,
   onDeleteIssueSuccess,
@@ -181,5 +188,7 @@ module.exports = {
   onShowIssueError,
   onCreateCommentError,
   onDeleteCommentError,
-  onUpdateCommentError
+  onUpdateCommentError,
+  onShowProfileError,
+  onShowProfileSuccess
 }

@@ -89,6 +89,16 @@ const onUpdateComment = function (event) {
     .catch(ui.onUpdateCommentError)
 }
 
+const onShowProfile = function (event) {
+  event.preventDefault()
+
+  const form = event.target
+  const formData = getFormFields(form)
+  api.showProfile(formData)
+    .then(ui.onShowProfileSuccess)
+    .catch(ui.onShowProfileError)
+}
+
 let begIndex = 0
 let endIndex = 5
 
@@ -143,5 +153,6 @@ module.exports = {
   onUpdateComment,
   addCreateListener,
   onNext,
-  onPrev
+  onPrev,
+  onShowProfile
 }

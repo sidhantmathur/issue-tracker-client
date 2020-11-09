@@ -32,4 +32,6 @@ $(() => {
 
   $('.next').on('click', issueEvents.onNext)
   $('.prev').on('click', issueEvents.onPrev)
+
+  $('#profile').on('click', issueEvents.onShowProfile)
 })

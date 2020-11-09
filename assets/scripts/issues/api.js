@@ -53,6 +53,16 @@ const showIssues = function (formData) {
   })
 }
 
+const showProfile = function (formData) {
+  return $.ajax({
+    url: config.apiUrl + '/issues',
+    method: 'GET',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 const showIssue = function (formData) {
   return $.ajax({
     url: config.apiUrl + '/issues/' + formData.issueId,
@@ -118,5 +128,6 @@ module.exports = {
   showIssue,
   createComment,
   deleteComment,
-  updateComment
+  updateComment,
+  showProfile
 }
