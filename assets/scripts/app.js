@@ -11,7 +11,7 @@ const issueEvents = require('./issues/events')
 $(() => {
   $('#issue-forms').hide()
   $('#user-forms').hide()
-  issueEvents.onShowIssues()
+  // issueEvents.onShowIssues()
   $('#guest').on('submit', authEvents.onSignIn)
 
   $('#sign-up').on('submit', authEvents.onSignUp)

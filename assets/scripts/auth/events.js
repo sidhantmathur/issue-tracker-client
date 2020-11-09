@@ -21,6 +21,7 @@ const onSignIn = function (event) {
   const formData = getFormFields(form)
   api.signIn(formData)
     .then(ui.onSignInSuccess)
+    .then(issueEvents.onShowIssues())
     .then(issueEvents.addCreateListener)
     .catch(ui.onSignInError)
 }
