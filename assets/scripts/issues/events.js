@@ -122,19 +122,19 @@ const onNext = function () {
   if ($('.list-group').children(':visible').length < 5) {
     console.log('no more')
     $('.next').prop('disabled', true)
-  } else if (($('.list-group').children().length) < (endIndex + 5)) {
+  } else if (($('.list-group').children().length) < (endIndex + 6)) {
     console.log('weird conditions met')
     $('.next').prop('disabled', true)
     $('.list-group a').css('display', 'none')
     $('.prev').prop('disabled', false)
-    begIndex += 5
-    endIndex += 5
+    begIndex += 6
+    endIndex += 6
     $('.list-group a:nth-child(n+' + begIndex + '):nth-child(-n+' + endIndex + ')').css('display', 'block')
   } else {
     $('.list-group a').css('display', 'none')
     $('.prev').prop('disabled', false)
-    begIndex += 5
-    endIndex += 5
+    begIndex += 6
+    endIndex += 6
     $('.list-group a:nth-child(n+' + begIndex + '):nth-child(-n+' + endIndex + ')').css('display', 'block')
   }
 }
@@ -143,17 +143,17 @@ const onPrev = function () {
   if (begIndex <= 0) {
     console.log('no more')
     $('.prev').prop('disabled', true)
-  } else if (begIndex <= 5) {
+  } else if (begIndex <= 6) {
     $('.list-group a').css('display', 'none')
     $('.prev').prop('disabled', true)
-    begIndex -= 5
-    endIndex -= 5
+    begIndex -= 6
+    endIndex -= 6
     $('.list-group a:nth-child(n+' + begIndex + '):nth-child(-n+' + endIndex + ')').css('display', 'block')
   } else {
     $('.list-group a').css('display', 'none')
     $('.next').prop('disabled', false)
-    begIndex -= 5
-    endIndex -= 5
+    begIndex -= 6
+    endIndex -= 6
     $('.list-group a:nth-child(n+' + begIndex + '):nth-child(-n+' + endIndex + ')').css('display', 'block')
   }
 }
