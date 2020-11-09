@@ -20,6 +20,7 @@ const onSignInSuccess = function (res) {
   $('#auth-forms').hide()
   $('#issue-forms').show()
   $('#user-forms').show()
+  $('#signed-in-nav').show()
 }
 
 const onChangePassSuccess = function () {
