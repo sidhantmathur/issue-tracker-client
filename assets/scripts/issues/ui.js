@@ -79,6 +79,7 @@ const onShowIssuesSuccess = function (res) {
       $(list2).prepend(list3)
     }
   }
+  $('.list-group a:nth-child(n+0):nth-child(-n+5)').css('display', 'block')
 }
 
 const onShowIssueSuccess = function (res) {
