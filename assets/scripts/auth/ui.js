@@ -12,11 +12,11 @@ const onSignUpSuccess = function (res) {
 // consolidate these show/hide ids with a "hidden on sign in class"
 
 const onSignInSuccess = function (res) {
+  store.user = res.user
   $('.alert').show()
   $('#auth-display-text').text('Sign In Successful ' + res.user.email)
   $('#sign-in').trigger('reset')
 
-  store.user = res.user
   $('#auth-forms').hide()
   $('#issue-forms').show()
   $('#user-forms').show()

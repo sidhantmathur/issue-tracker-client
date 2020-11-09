@@ -1,7 +1,7 @@
 
 'use strict'
 const issueEvents = require('./events')
-const store = require('./../store')
+// const store = require('./../store')
 
 const onCreateIssueSuccess = function (res) {
   $('#create-issue').trigger('reset')
@@ -36,9 +36,13 @@ const onUpdateIssueSuccess = function (res) {
 }
 
 const onShowIssuesSuccess = function (res) {
-  if (!store.user) {
-    console.log('no store yet in UI')
-  }
+  // if (!store.user) {
+  //   console.log('no store yet in UI')
+  //   console.log(store.user)
+  // } else {
+  //   console.log('store is here')
+  //   console.log(store.user)
+  // }
   // $('#show-issues').trigger('reset')
   console.log(res)
   // console.log(res.issues)
@@ -70,14 +74,21 @@ const onShowIssuesSuccess = function (res) {
     $(display2).append(list2)
     $(display).append(list)
 
+    // console.log(store.user._id)
+
     for (let i = 0; i < issArr.comments.length; i++) {
       const commArr = issArr.comments[i]
-      // console.log(commArr)
-
+      // console.log(commArr.owner)
       const list3 = document.createElement('li')
       $(list3).addClass('list-group-item')
 
-      $(list3).html('<p>' + commArr.text + '</p><form class="delete-comments"><input type="hidden" class="comm-own" value="' + commArr.owner + '"><input type="hidden" name="issueId" value="' + issArr._id + '"><input type="hidden" name="commentId" value="' + commArr._id + '"><input type="submit" value="Delete Comment" class="btn btn-danger"></form>')
+      $(list3).html('<p>' + commArr.text + '</p>')
+
+      // if (store.user._id === commArr.owner) {
+      //   $(list3).html('<p>' + commArr.text + '</p><form class="delete-comments"><input type="hidden" class="comm-own" value="' + commArr.owner + '"><input type="hidden" name="issueId" value="' + issArr._id + '"><input type="hidden" name="commentId" value="' + commArr._id + '"><input type="submit" value="Delete Comment" class="btn btn-danger"></form>')
+      // } else {
+      //   $(list3).html('<p>' + commArr.text + '</p>')
+      // }
 
       $(list2).prepend(list3)
     }

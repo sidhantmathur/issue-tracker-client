@@ -26,9 +26,7 @@ $(() => {
   $('#show-issue').on('submit', issueEvents.onShowIssue)
 
   $('.create-comments').on('submit', issueEvents.onCreateComment)
-
-  $('#delete-comment').on('submit', issueEvents.onDeleteComment)
-
+  // $('#delete-comment').on('submit', issueEvents.onDeleteComment)
   $('.delete-comments').on('submit', issueEvents.onDeleteComment)
 
   $('#update-comment').on('submit', issueEvents.onUpdateComment)
