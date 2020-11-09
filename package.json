@@ -9,9 +9,7 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.1.2",
-    "infinite-scroll": "^3.0.6",
     "jquery": "^3.3.1",
-    "paginationjs": "^2.1.5",
     "popper.js": "^1.14.3"
   },
   "devDependencies": {
