@@ -50,7 +50,9 @@ const onShowIssuesSuccess = function (res) {
   const display2 = $('#comment-display')
 
   $('#user-issues').hide()
+  $('#profile-head').hide()
   $('#issue-queue').show()
+  $('#queue-head').show()
 
   $(display).empty()
   $(display2).empty()
@@ -193,6 +195,9 @@ const onShowProfileSuccess = function (res) {
   const display = $('#user-issues')
 
   $('#issue-queue').hide()
+
+  $('#profile-head').show()
+  $('#queue-head').hide()
 
   $(display).show()
 

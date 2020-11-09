@@ -9,6 +9,8 @@ const authEvents = require('./auth/events')
 const issueEvents = require('./issues/events')
 
 $(() => {
+  $('#profile-head').hide()
+  $('#queue-head').hide()
   $('#issue-forms').hide()
   $('#user-forms').hide()
   // issueEvents.onShowIssues()
