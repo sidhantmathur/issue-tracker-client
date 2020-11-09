@@ -21,7 +21,7 @@ a p {
   display: none;
 }
 
-.list-group a:nth-child(-n+11) {
+.list-group a:nth-child(n+0):nth-child(-n+5) {
     display: block;
 }
 

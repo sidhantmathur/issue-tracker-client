@@ -38,7 +38,7 @@ const onUpdateIssueSuccess = function (res) {
 const onShowIssuesSuccess = function (res) {
   // $('#show-issues').trigger('reset')
 
-  console.log(res)
+  console.log(res.length, res)
   // console.log(res.issues)
   const display = $('#issue-display-text')
   const display2 = $('#comment-display')
