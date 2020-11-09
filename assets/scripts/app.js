@@ -22,11 +22,15 @@ $(() => {
   $('#create-issue').on('submit', issueEvents.onCreateIssue)
   $('.delete-issue').on('click', issueEvents.onDeleteIssue)
   $('#update-issue').on('submit', issueEvents.onUpdateIssue)
-  $('#show-issues').on('submit', issueEvents.onShowIssues)
+  $('.show-issues').on('click', issueEvents.onShowIssues)
   $('#show-issue').on('submit', issueEvents.onShowIssue)
 
   $('.create-comments').on('submit', issueEvents.onCreateComment)
+
   $('#delete-comment').on('submit', issueEvents.onDeleteComment)
+
+  $('.delete-comments').on('submit', issueEvents.onDeleteComment)
+
   $('#update-comment').on('submit', issueEvents.onUpdateComment)
 
   $('.next').on('click', issueEvents.onNext)

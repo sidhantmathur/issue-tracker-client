@@ -1,7 +1,7 @@
 
 'use strict'
 const issueEvents = require('./events')
-// const store = require('./../store')
+const store = require('./../store')
 
 const onCreateIssueSuccess = function (res) {
   $('#create-issue').trigger('reset')
@@ -36,15 +36,17 @@ const onUpdateIssueSuccess = function (res) {
 }
 
 const onShowIssuesSuccess = function (res) {
+  if (!store.user) {
+    console.log('no store yet in UI')
+  }
   // $('#show-issues').trigger('reset')
-
   console.log(res)
   // console.log(res.issues)
   const display = $('#issue-display-text')
   const display2 = $('#comment-display')
 
-  // $(display).empty()
-  // $(display2).empty()
+  $(display).empty()
+  $(display2).empty()
 
   // const thing = res.issues.slice(0, 5)
 
@@ -74,7 +76,8 @@ const onShowIssuesSuccess = function (res) {
 
       const list3 = document.createElement('li')
       $(list3).addClass('list-group-item')
-      $(list3).html('<p>' + commArr.text + '</p>')
+
+      $(list3).html('<p>' + commArr.text + '</p><form class="delete-comments"><input type="hidden" class="comm-own" value="' + commArr.owner + '"><input type="hidden" name="issueId" value="' + issArr._id + '"><input type="hidden" name="commentId" value="' + commArr._id + '"><input type="submit" value="Delete Comment" class="btn btn-danger"></form>')
 
       $(list2).prepend(list3)
     }

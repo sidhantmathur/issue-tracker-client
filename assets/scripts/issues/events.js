@@ -1,6 +1,7 @@
 'use strict'
 const api = require('./api')
 const ui = require('./ui')
+const store = require('./../store')
 const getFormFields = require('../../../lib/get-form-fields.js')
 
 const onCreateIssue = function (event) {
@@ -36,6 +37,25 @@ const onUpdateIssue = function (event) {
 
 const addCreateListener = function () {
   $('.create-comments').on('submit', onCreateComment)
+  $('.delete-comments').on('submit', onDeleteComment)
+
+  console.log(store.user)
+
+  // https://stackoverflow.com/a/39018563/9190545
+  const $inputValues = $('.comm-own').map(function () {
+    return $(this).val()
+  })
+
+  // console.log($inputValues)
+  // let parent = $('.delete-comments')
+
+  for (let i = 0; i < $inputValues.length; i++) {
+    if (store.user._id === $inputValues[i]) {
+      // console.log('this comment is yours')
+      // let newNode = document.createElement('button')
+      // parent.insertBefore(newNode, $inputValues)
+    }
+  }
 }
 
 // no form except token. Removing forms allows .then after sign in
@@ -46,6 +66,7 @@ const onShowIssues = function () {
   // const formData = getFormFields(form)
   api.showIssues()
     .then(ui.onShowIssuesSuccess)
+    .then(addCreateListener)
     .catch(ui.onShowIssuesError)
 }
 
