@@ -40,4 +40,7 @@ $(() => {
   $('.prev').on('click', issueEvents.onPrev)
 
   $('#show-profile').on('click', issueEvents.onShowProfile)
+
+  $('#profile').on('click', issueEvents.onShowProfile)
+  $('#queue').on('click', issueEvents.onShowIssues)
 })

@@ -14,20 +14,20 @@
     <body>
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <span class="navbar-brand mb-0 h1">Issue Tracker</span>
-        <!-- <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#" id="show-profile">Profile</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Posts</a>
-          </li>
-          <li class="nav-item">
-            <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-              Create Issue
-            </a>
-          </li>
-        </ul> -->
+        <a class="navbar-brand" href="#">Issue Tracker</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a id="queue" class="nav-link" href="#">Queue</a>
+            </li>
+            <li class="nav-item">
+              <a id="profile" class="nav-link" href="#">Profile</a>
+            </li>
+          </ul>
+        </div>
       </nav>
 
   <main class="container">
@@ -57,11 +57,11 @@
 
     <div id="issue-forms">
       <h1>Issue Queue</h1>
-      <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+      <a class="btn btn-primary" data-toggle="collapse" href="#create-collapse" role="button" aria-expanded="false" aria-controls="create-collapse">
         Create Issue
       </a>
 
-      <div class="collapse" id="collapseExample">
+      <div class="collapse" id="create-collapse">
         <div class="card card-body">
           <form id="create-issue">
             <h2>Create Issue</h2>
@@ -71,17 +71,18 @@
           </form>
         </div>
       </div>
-      <br>
+      <!-- <br>
 
       <button class="btn btn-primary show-issues">Refresh</button>
       <button class="btn btn-primary" id="show-profile">Profile</button>
-      <br>
-      <button class="btn btn-primary prev">Prev</button>
-      <button class="btn btn-primary next">Next</button>
+      <br> -->
+
       <div class="list group" id="user-issues" role="tablist"></div>
 
       <div class="row" id="issue-queue">
         <div class="col-5">
+          <button class="btn btn-primary prev">Prev</button>
+          <button class="btn btn-primary next">Next</button>
           <div class="list-group data-container" id="issue-display-text" role="tablist"></div>
           <button class="btn btn-primary prev">Prev</button>
           <button class="btn btn-primary next">Next</button>
