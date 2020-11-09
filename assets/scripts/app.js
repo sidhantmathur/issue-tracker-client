@@ -25,8 +25,7 @@ $(() => {
   $('#show-issues').on('submit', issueEvents.onShowIssues)
   $('#show-issue').on('submit', issueEvents.onShowIssue)
 
-  $('#create-comment').on('submit', issueEvents.onCreateComment)
-  $('.create-comments').on('click', issueEvents.onCreateComment)
+  $('.create-comments').on('submit', issueEvents.onCreateComment)
   $('#delete-comment').on('submit', issueEvents.onDeleteComment)
   $('#update-comment').on('submit', issueEvents.onUpdateComment)
 

@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('./../store')
+const issueEvents = require('../issues/events')
 
 const onSignUpSuccess = function (res) {
   $('.alert').show()
@@ -32,6 +33,11 @@ const onSignOutSuccess = function () {
   $('#auth-forms').show()
   $('#issue-forms').hide()
   $('#user-forms').hide()
+
+  $('#issue-display-text').empty()
+  $('#comment-display').empty()
+
+  issueEvents.onShowIssues()
 }
 
 const onSignOutError = function (error) {
