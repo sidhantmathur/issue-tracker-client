@@ -89,24 +89,28 @@ const onUpdateComment = function (event) {
     .catch(ui.onUpdateCommentError)
 }
 
-let showIndex = 0
+let begIndex = 0
+let endIndex = 5
 
 const onNext = function () {
-  if ($('.list-group').children(':visible').length < 10) {
+  if ($('.list-group').children(':visible').length < 5) {
     console.log('no more')
   } else {
     $('.list-group a').css('display', 'none')
-    showIndex += 5
-    $('.list-group a:nth-child(n+' + showIndex + ')').css('display', 'block')
+    begIndex += 5
+    endIndex += 5
+    $('.list-group a:nth-child(n+' + begIndex + '):nth-child(-n+' + endIndex + ')').css('display', 'block')
   }
 }
+
 const onPrev = function () {
-  if (showIndex <= 0) {
+  if (begIndex <= 0) {
     console.log('no more')
   } else {
     $('.list-group a').css('display', 'none')
-    showIndex -= 5
-    $('.list-group a:nth-child(n+' + showIndex + ')').css('display', 'block')
+    begIndex -= 5
+    endIndex -= 5
+    $('.list-group a:nth-child(n+' + begIndex + '):nth-child(-n+' + endIndex + ')').css('display', 'block')
   }
 }
 

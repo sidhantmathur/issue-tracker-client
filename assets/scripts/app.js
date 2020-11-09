@@ -30,6 +30,6 @@ $(() => {
   $('#delete-comment').on('submit', issueEvents.onDeleteComment)
   $('#update-comment').on('submit', issueEvents.onUpdateComment)
 
-  $('#next').on('click', issueEvents.onNext)
-  $('#prev').on('click', issueEvents.onPrev)
+  $('.next').on('click', issueEvents.onNext)
+  $('.prev').on('click', issueEvents.onPrev)
 })
