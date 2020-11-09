@@ -57,7 +57,7 @@ const onShowIssuesSuccess = function (res) {
     $(list).addClass('list-group-item list-group-item-action')
     $(list).attr('data-toggle', 'list')
     $(list).attr('href', '#list-' + issArr._id)
-    $(list).html('<h6>' + issArr.owner + '</h6><h4>' + issArr.title + '</h4><p>' + issArr.text + '</p>')
+    $(list).html('<h4>' + issArr.title + '</h4><p>' + issArr.text + '</p>')
 
     const list2 = document.createElement('div')
     $(list2).addClass('tab-pane fade')
@@ -74,12 +74,17 @@ const onShowIssuesSuccess = function (res) {
 
       const list3 = document.createElement('li')
       $(list3).addClass('list-group-item')
-      $(list3).html('<h6>' + commArr.owner + '</h6><p>' + commArr.text + '</p>')
+      $(list3).html('<p>' + commArr.text + '</p>')
 
       $(list2).prepend(list3)
     }
   }
+
+  issueEvents.begIndex = 0
+  issueEvents.endIndex = 5
   $('.list-group a:nth-child(n+0):nth-child(-n+5)').css('display', 'block')
+  $('.prev').prop('disabled', true)
+  $('.next').prop('disabled', false)
 }
 
 const onShowIssueSuccess = function (res) {
