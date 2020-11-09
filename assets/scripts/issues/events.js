@@ -61,7 +61,7 @@ const onShowIssues = function () {
   api.showIssues()
     .then(ui.onShowIssuesSuccess)
     // .then(addChecker)
-    .then(addCreateListener)
+    // .then(addCreateListener)
     .catch(ui.onShowIssuesError)
 }
 
