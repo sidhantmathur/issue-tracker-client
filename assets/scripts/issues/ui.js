@@ -59,6 +59,10 @@ const onShowIssuesSuccess = function (res) {
   $('#user-display').hide()
   $('#pub-display').show()
 
+  $('#nav-queue').addClass('active')
+  $('#nav-profile').removeClass('active')
+  $('#nav-settings').removeClass('active')
+
   $(display).empty()
   $(display2).empty()
 
@@ -203,6 +207,10 @@ const onShowProfileSuccess = function (res) {
   $('#user-display').show()
   $('#user-settings').hide()
   $('#pub-display').hide()
+
+  $('#nav-queue').removeClass('active')
+  $('#nav-profile').addClass('active')
+  $('#nav-settings').removeClass('active')
 
   $(display).show()
 
