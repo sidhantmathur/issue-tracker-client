@@ -50,9 +50,9 @@ const onShowSettings = function () {
   $('#pub-display').hide()
   $('#welcome').text('Welcome ' + store.user.email)
 
-  $('#nav-queue').removeClass('active')
-  $('#nav-profile').removeClass('active')
-  $('#nav-settings').addClass('active')
+  // $('#nav-queue').removeClass('active')
+  // $('#nav-profile').removeClass('active')
+  // $('#nav-settings').addClass('active')
 }
 
 module.exports = {

@@ -20,14 +20,14 @@
         #user-settings   - change pass
        -->
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="#">Issue Tracker</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto" id="signed-in-nav">
-          <li id="nav-queue" class="nav-item active">
+          <li id="nav-queue" class="nav-item">
             <a id="queue" class="nav-link" href="#">Queue</a>
           </li>
           <li id="profile-queue" class="nav-item">
@@ -43,15 +43,12 @@
     <main class="container">
 
     <div id="user-message" class="alert alert-secondary mt-3" role="alert">
-      <p id="auth-display-text"></p>
+      <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button> -->
+      <span id="auth-display-text"></span>
     </div>
-    <div id="auth-display">
-      <form id="guest">
-        <h2>Guest Sign Up</h2>
-        <input type="hidden" class="form-control" name="auth[email]" placeholder="Email" value="a@a.com" required>
-        <input type="hidden" class="form-control" name="auth[password]" placeholder="Password" value="a" required>
-        <input type="submit" class="btn btn-primary">
-      </form>
+    <div id="auth-display" class="full-auth">
       <form id="sign-up">
         <h2>Sign Up</h2>
           <input type="email" class="form-control" name="auth[email]" placeholder="Email" required>
@@ -60,16 +57,21 @@
           <input type="submit" class="btn btn-primary">
       </form>
       <form id="sign-in">
-        <h2>Sign In</h2>
+        <h2 class="mb-3">Sign In</h2>
           <input type="email" class="form-control" name="auth[email]" placeholder="Email" required>
           <input type="password" class="form-control" name="auth[password]" placeholder="Password" required>
           <input type="submit" class="btn btn-primary">
+      </form>
+      <form id="guest">
+        <input type="hidden" class="form-control" name="auth[email]" placeholder="Email" value="a@a.com" required>
+        <input type="hidden" class="form-control" name="auth[password]" placeholder="Password" value="a" required>
+        <input type="submit" class="btn btn-secondary" value="Sign In as Guest">
       </form>
     </div>
 
     <div id="pub-display">
       <h1>Public Issues</h1>
-      <a class="btn btn-primary" data-toggle="collapse" href="#create-collapse" role="button" aria-expanded="false" aria-controls="create-collapse">
+      <a class="btn btn-success" data-toggle="collapse" href="#create-collapse" role="button" aria-expanded="false" aria-controls="create-collapse">
         Create Issue
       </a>
       <div class="collapse" id="create-collapse">
@@ -84,7 +86,7 @@
                 <option>In Progress</option>
                 <option>Solved</option>
               </select>
-              <input type="submit" class="btn btn-primary" value="Create Issue">
+              <input type="submit" class="btn btn-success" value="Create Issue">
           </form>
         </div>
       </div>
@@ -92,8 +94,8 @@
       <div class="row" id="issue-queue">
         <div class="col-lg-5">
           <div class="list-group list-group-flush" id="issue-display-text" role="tablist"></div>
-          <button class="btn btn-secondary prev">&laquo</button>
-          <button class="btn btn-secondary next">&raquo</button>
+          <button class="btn btn-secondary prev">&laquo Prev Page</button>
+          <button class="btn btn-secondary next">Next Page &raquo</button>
         </div>
         <div class="col-lg-7">
           <div class="tab-content" id="comment-display"></div>
@@ -109,14 +111,14 @@
     <div id="user-settings">
       <h1>User Settings</h1>
       <h4 id="welcome"></h4>
+      <form id="sign-out">
+        <input type="submit" class="btn btn-danger" value="Sign Out">
+      </form>
       <form id="change-pass">
         <h2>Change Password</h2>
           <input type="password" name="auth[oldPass]" class="form-control" placeholder="Old Password" required>
           <input type="password" name="auth[newPass]" class="form-control" placeholder="New Password" required>
-          <input type="submit" class="btn btn-danger" value="Change Password">
-      </form>
-      <form id="sign-out">
-        <input type="submit" class="btn btn-danger" value="Sign Out">
+          <input type="submit" class="btn btn-warning" value="Change Password">
       </form>
 
       <a class="btn btn-secondary" data-toggle="collapse" href="#settings-collapse" role="button" aria-expanded="false" aria-controls="settings-collapse">

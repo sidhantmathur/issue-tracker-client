@@ -22,6 +22,8 @@ const onSignInSuccess = function (res) {
 
   $('#signed-in-nav').show()
 
+  $('body').css('background-color', '#fff')
+
   issueEvents.onShowIssues()
 }
 
@@ -41,6 +43,9 @@ const onSignOutSuccess = function () {
   $('#issue-display-text').empty()
   $('#comment-display').empty()
   $('#user-issues').empty()
+
+  $('body').css('background-color', '#f5f5f5')
+  $('.alert').show()
 }
 
 const onSignOutError = function (error) {
