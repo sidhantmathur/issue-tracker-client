@@ -23,6 +23,12 @@ const onCreateIssueSuccess = function (res) {
   res.issue._id + '" name="issueId" class="form-control" placeholder="Issue ID" required><input type="submit" class="btn btn-primary" value="Create Comment"></form>')
   $(display).prepend(list)
   $(display2.prepend(list2))
+
+  issueEvents.begIndex = 1
+  issueEvents.endIndex = 5
+  $('.list-group a:nth-child(n+1):nth-child(-n+5)').css('display', 'block')
+  $('.prev').prop('disabled', true)
+  $('.next').prop('disabled', false)
 }
 
 const onDeleteIssueSuccess = function (res) {
@@ -191,8 +197,9 @@ const onUpdateCommentError = function (error) {
 
 const onShowProfileSuccess = function (res) {
   console.log(res)
-  const display = $('#user-display')
+  const display = $('#user-issues')
 
+  $('#user-display').show()
   $('#user-settings').hide()
   $('#pub-display').hide()
 
@@ -207,7 +214,7 @@ const onShowProfileSuccess = function (res) {
 
     const list = document.createElement('li')
     $(list).addClass('list-group-item')
-    $(list).html('<h4>' + issArr.title + '</h4><p>' + issArr.text + '</p>' + '<form class="delete-issues"><input type="hidden" name="issueId" value="' + issArr._id + '"><input type="submit" value="Delete Issue" class="btn btn-danger"></form>' + '<a class="btn btn-primary" data-toggle="collapse" href="#update-collapse-' + issArr._id + '" role="button" aria-expanded="false" aria-controls="update-collapse">Update Issue</a><div class="collapse" id="update-collapse-' + issArr._id + '"><div class="card card-body"><form class="update-issues"><input type="hidden" name="issueId" value="' + issArr._id + '"><textarea type="text" name="text" class="form-control" placeholder="Body Text"></textarea><input type="submit" class="btn btn-primary" value="Update Issue"></form>')
+    $(list).html('<h4>' + issArr.title + '</h4><p>' + issArr.text + '</p>' + '<form class="delete-issues"><input type="hidden" name="issueId" value="' + issArr._id + '"><input type="submit" value="Delete Issue" class="btn btn-danger"></form>' + '<a class="btn btn-warning" data-toggle="collapse" href="#update-collapse-' + issArr._id + '" role="button" aria-expanded="false" aria-controls="update-collapse">Update Issue</a><div class="collapse" id="update-collapse-' + issArr._id + '"><div class="card card-body"><form class="update-issues"><input type="hidden" name="issueId" value="' + issArr._id + '"><textarea type="text" name="text" class="form-control" placeholder="Body Text"></textarea><input type="submit" class="btn btn-warning" value="Update Issue"></form>')
 
     $(display).append(list)
   }

@@ -23,7 +23,7 @@ $(() => {
   $('#sign-out').on('submit', authEvents.onSignOut)
 
   $('#create-issue').on('submit', issueEvents.onCreateIssue)
-  $('#create-issue2').on('submit', issueEvents.onCreateIssue)
+  // $('#create-issue2').on('submit', issueEvents.onCreateIssue)
 
   $('.delete-issues').on('submit', issueEvents.onDeleteIssue)
   // $('#delete-issue').on('submit', issueEvents.onDeleteIssue)

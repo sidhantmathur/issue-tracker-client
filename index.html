@@ -69,7 +69,7 @@
     </div>
 
     <div id="pub-display">
-      <h1 id="queue-head">Public Issues</h1>
+      <h1>Public Issues</h1>
       <a class="btn btn-primary" data-toggle="collapse" href="#create-collapse" role="button" aria-expanded="false" aria-controls="create-collapse">
         Create Issue
       </a>
@@ -86,9 +86,9 @@
 
       <div class="row" id="issue-queue">
         <div class="col-5">
-          <div class="list-group data-container" id="issue-display-text" role="tablist"></div>
-          <button class="btn btn-primary prev">Prev</button>
-          <button class="btn btn-primary next">Next</button>
+          <div class="list-group list-group-flush" id="issue-display-text" role="tablist"></div>
+          <button class="btn btn-secondary prev">&laquo</button>
+          <button class="btn btn-secondary next">&raquo</button>
         </div>
         <div class="col-7">
           <div class="tab-content" id="comment-display"></div>
@@ -97,37 +97,13 @@
     </div>
 
     <div id="user-display">
-      <h1 id="profile-head">User Issues</h1>
-      <a class="btn btn-primary" data-toggle="collapse" href="#create-collapse2" role="button" aria-expanded="false" aria-controls="create-collapse">
-        Create Issue
-      </a>
-      <div class="collapse" id="create-collapse2">
-        <div class="card card-body">
-          <form id="create-issue2">
-            <h2>Create Issue</h2>
-              <input type="text" name="title" class="form-control" placeholder="Title" required>
-              <textarea type="text" name="text" class="form-control" placeholder="Body" required></textarea>
-              <input type="submit" class="btn btn-primary" value="Create Issue">
-          </form>
-        </div>
-      </div>
-      <div class="list group" id="user-issues" role="tablist"></div>
+      <h1>User Issues</h1>
+      <div class="list group list-group-flush" id="user-issues" role="tablist"></div>
     </div>
 
     <div id="user-settings">
-      <form id="update-comment">
-        <h2>Update Comment</h2>
-          <textarea name="text" class="form-control" placeholder="Update Comment"></textarea>
-          <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
-          <input type="text" name="commentId" class="form-control" placeholder="Comment ID" required>
-          <input type="submit" class="btn btn-warning" value="Update Comment">
-      </form>
-      <form id="delete-comment">
-        <h2>Delete Comment</h2>
-          <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
-          <input type="text" name="commentId" class="form-control" placeholder="Comment ID" required>
-          <input type="submit" class="btn btn-danger" value="Delete Comment">
-      </form>
+      <h1>User Settings</h1>
+      <h4 id="welcome"></h4>
       <form id="change-pass">
         <h2>Change Password</h2>
           <input type="password" name="auth[oldPass]" class="form-control" placeholder="Old Password" required>
@@ -137,6 +113,27 @@
       <form id="sign-out">
         <input type="submit" class="btn btn-danger" value="Sign Out">
       </form>
+
+      <a class="btn btn-secondary" data-toggle="collapse" href="#settings-collapse" role="button" aria-expanded="false" aria-controls="settings-collapse">
+        Developer Forms
+      </a>
+      <div class="collapse" id="settings-collapse">
+        <div class="card card-body">
+          <form id="update-comment">
+            <h2>Update Comment</h2>
+              <textarea name="text" class="form-control" placeholder="Update Comment"></textarea>
+              <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
+              <input type="text" name="commentId" class="form-control" placeholder="Comment ID" required>
+              <input type="submit" class="btn btn-warning" value="Update Comment">
+          </form>
+          <form id="delete-comment">
+            <h2>Delete Comment</h2>
+              <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
+              <input type="text" name="commentId" class="form-control" placeholder="Comment ID" required>
+              <input type="submit" class="btn btn-danger" value="Delete Comment">
+          </form>
+        </div>
+      </div>
     </div>
     </main>
   </body>
