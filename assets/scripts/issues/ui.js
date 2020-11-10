@@ -32,11 +32,13 @@ const onCreateIssueSuccess = function (res) {
 }
 
 const onDeleteIssueSuccess = function (res) {
+  $('#auth-display-text').text('Issue Deleted!')
   $('#delete-issue').trigger('reset')
   console.log(res)
 }
 
 const onUpdateIssueSuccess = function (res) {
+  $('#auth-display-text').text('Issue Updated!')
   $('#update-issue').trigger('reset')
   console.log(res)
 }
@@ -129,52 +131,51 @@ const onCreateCommentSuccess = function (res) {
 }
 
 const onDeleteCommentSuccess = function (res) {
-  $('#delete-comment').trigger('reset')
+  // $('.delete-comments').trigger('reset')
+  $('#auth-display-text').text('Comment Updated!')
   console.log(res)
 }
 
 const onUpdateCommentSuccess = function (res) {
-  $('#update-comment').trigger('reset')
+  // $('.update-comments').trigger('reset')
+  $('#auth-display-text').text('Comment Updated!')
   console.log(res)
 }
 
 const onCreateIssueError = function (error) {
   $('#create-issue').trigger('reset')
+  $('#auth-display-text').text('Error Creating Issue: ' + error.statusText + ' Status Code: ' + error.status)
   console.log(error)
 }
 
 const onDeleteIssueError = function (error) {
-  $('#delete-issue').trigger('reset')
+  $('#auth-display-text').text('Error Deleting Issue: ' + error.statusText + ' Status Code: ' + error.status)
   console.log(error)
 }
 
 const onUpdateIssueError = function (error) {
-  $('#update-issue').trigger('reset')
+  $('.update-issues').trigger('reset')
+  $('#auth-display-text').text('Error Updating Issue: ' + error.statusText + ' Status Code: ' + error.status)
   console.log(error)
 }
 
 const onShowIssuesError = function (error) {
-  $('#show-issues').trigger('reset')
-  console.log(error)
-}
-
-const onShowIssueError = function (error) {
-  $('#show-issue').trigger('reset')
+  $('#auth-display-text').text('Error Getting Issues: ' + error.statusText + ' Status Code: ' + error.status)
   console.log(error)
 }
 
 const onCreateCommentError = function (error) {
-  $('#create-comment').trigger('reset')
+  $('.create-comment').trigger('reset')
   console.log(error)
 }
 
 const onDeleteCommentError = function (error) {
-  $('#delete-comment').trigger('reset')
+  // $('.delete-comment').trigger('reset')
   console.log(error)
 }
 
 const onUpdateCommentError = function (error) {
-  $('#update-comment').trigger('reset')
+  // $('.update-comment').trigger('reset')
   console.log(error)
 }
 
@@ -195,6 +196,10 @@ const onShowProfileSuccess = function (res) {
   console.log(res)
 
   $(display).empty()
+
+  if (res.issues.length === 0) {
+    $(display).html('<p>No Issues Yet!</p>')
+  }
 
   for (let i = 0; i < res.issues.length; i++) {
     const issArr = res.issues[i]
@@ -222,7 +227,6 @@ module.exports = {
   onDeleteIssueError,
   onUpdateIssueError,
   onShowIssuesError,
-  onShowIssueError,
   onCreateCommentError,
   onDeleteCommentError,
   onUpdateCommentError,
