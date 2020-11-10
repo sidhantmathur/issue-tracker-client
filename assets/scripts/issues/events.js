@@ -130,8 +130,8 @@ const onNext = function () {
   } else if (($('.list-group').children().length) <= (endIndex + 5)) {
     console.log('weird conditions met')
     $('.next').prop('disabled', true)
-    $('.list-group a').css('display', 'none')
     $('.prev').prop('disabled', false)
+    $('.list-group a').css('display', 'none')
     begIndex += 5
     endIndex += 5
     $('.list-group a:nth-child(n+' + begIndex + '):nth-child(-n+' + endIndex + ')').css('display', 'block')
@@ -151,6 +151,7 @@ const onPrev = function () {
   } else if (begIndex <= 6) {
     $('.list-group a').css('display', 'none')
     $('.prev').prop('disabled', true)
+    $('.next').prop('disabled', false)
     begIndex -= 5
     endIndex -= 5
     $('.list-group a:nth-child(n+' + begIndex + '):nth-child(-n+' + endIndex + ')').css('display', 'block')
