@@ -17,7 +17,7 @@ const onCreateIssueSuccess = function (res) {
   $(list2).addClass('tab-pane fade')
   $(list2).attr('id', 'list-' + res.issue._id)
 
-  $(list).html('<h4>' + res.issue.title + '</h4>' + '<p>' + res.issue.text + '</p>')
+  $(list).html('<h4>' + res.issue.title + '</h4>' + '<p>' + res.issue.text + '</p><h6>' + res.issue.tag + '</h6>')
 
   $(list2).html('<form class="create-comments"><h2>Create Comment</h2><textarea type="text" name="text" class="form-control" placeholder="Text"></textarea><input type="hidden" value="' +
   res.issue._id + '" name="issueId" class="form-control" placeholder="Issue ID" required><input type="submit" class="btn btn-primary" value="Create Comment"></form>')
