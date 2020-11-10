@@ -39,6 +39,7 @@ const onSignOutSuccess = function () {
   $('#pub-display').hide()
   $('#user-display').hide()
   $('#user-settings').hide()
+  $('#signed-in-nav').hide()
 
   $('#issue-display-text').empty()
   $('#comment-display').empty()
