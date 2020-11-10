@@ -37,7 +37,8 @@ const updateIssue = function (formData) {
     },
     data: {
       issue: {
-        text: formData.text
+        text: formData.text,
+        title: formData.title
       }
     }
   })
