@@ -42,6 +42,7 @@ const addQueueListeners = function () {
 
 const addProfileListeners = function () {
   $('.delete-issues').on('submit', onDeleteIssue)
+  $('.update-issues').on('submit', onUpdateIssue)
 }
 
 // const addChecker = function () {
@@ -120,26 +121,26 @@ const onShowProfile = function (event) {
     .catch(ui.onShowProfileError)
 }
 
-let begIndex = 0
+let begIndex = 1
 let endIndex = 5
 
 const onNext = function () {
   if ($('.list-group').children(':visible').length < 5) {
     console.log('no more')
     $('.next').prop('disabled', true)
-  } else if (($('.list-group').children().length) < (endIndex + 6)) {
+  } else if (($('.list-group').children().length) < (endIndex + 5)) {
     console.log('weird conditions met')
     $('.next').prop('disabled', true)
     $('.list-group a').css('display', 'none')
     $('.prev').prop('disabled', false)
-    begIndex += 6
-    endIndex += 6
+    begIndex += 5
+    endIndex += 5
     $('.list-group a:nth-child(n+' + begIndex + '):nth-child(-n+' + endIndex + ')').css('display', 'block')
   } else {
     $('.list-group a').css('display', 'none')
     $('.prev').prop('disabled', false)
-    begIndex += 6
-    endIndex += 6
+    begIndex += 5
+    endIndex += 5
     $('.list-group a:nth-child(n+' + begIndex + '):nth-child(-n+' + endIndex + ')').css('display', 'block')
   }
 }
@@ -151,14 +152,14 @@ const onPrev = function () {
   } else if (begIndex <= 6) {
     $('.list-group a').css('display', 'none')
     $('.prev').prop('disabled', true)
-    begIndex -= 6
-    endIndex -= 6
+    begIndex -= 5
+    endIndex -= 5
     $('.list-group a:nth-child(n+' + begIndex + '):nth-child(-n+' + endIndex + ')').css('display', 'block')
   } else {
     $('.list-group a').css('display', 'none')
     $('.next').prop('disabled', false)
-    begIndex -= 6
-    endIndex -= 6
+    begIndex -= 5
+    endIndex -= 5
     $('.list-group a:nth-child(n+' + begIndex + '):nth-child(-n+' + endIndex + ')').css('display', 'block')
   }
 }
