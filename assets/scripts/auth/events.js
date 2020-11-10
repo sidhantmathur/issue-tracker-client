@@ -1,7 +1,6 @@
 'use strict'
 const api = require('./api')
 const ui = require('./ui')
-const issueEvents = require('../issues/events')
 const getFormFields = require('../../../lib/get-form-fields.js')
 const store = require('../store')
 
@@ -22,8 +21,6 @@ const onSignIn = function (event) {
   const formData = getFormFields(form)
   api.signIn(formData)
     .then(ui.onSignInSuccess)
-    .then(issueEvents.onShowIssues())
-    .then(issueEvents.addQueueListeners)
     .catch(ui.onSignInError)
 }
 

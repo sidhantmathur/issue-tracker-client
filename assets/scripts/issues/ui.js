@@ -1,7 +1,7 @@
 
 'use strict'
 const issueEvents = require('./events')
-// const store = require('./../store')
+const store = require('./../store')
 
 const onCreateIssueSuccess = function (res) {
   $('#create-issue').trigger('reset')
@@ -89,12 +89,13 @@ const onShowIssuesSuccess = function (res) {
     for (let i = 0; i < issArr.comments.length; i++) {
       const commArr = issArr.comments[i]
       // console.log(commArr.owner)
+      // console.log('store id = ' + store.user._id)
       const list3 = document.createElement('li')
       $(list3).addClass('list-group-item')
 
       $(list3).html('<p>' + commArr.text + '</p>')
 
-      // if (store.user._id === commArr.owner) {
+      // if (store.user._id == commArr.owner) {
       //   $(list3).html('<p>' + commArr.text + '</p><form class="delete-comments"><input type="hidden" class="comm-own" value="' + commArr.owner + '"><input type="hidden" name="issueId" value="' + issArr._id + '"><input type="hidden" name="commentId" value="' + commArr._id + '"><input type="submit" value="Delete Comment" class="btn btn-danger"></form>')
       // } else {
       //   $(list3).html('<p>' + commArr.text + '</p>')
@@ -111,27 +112,27 @@ const onShowIssuesSuccess = function (res) {
   $('.next').prop('disabled', false)
 }
 
-const onShowIssueSuccess = function (res) {
-  $('#show-issue').trigger('reset')
-  console.log(res)
-  // $('#issue-display-text').html(res.issue.text)
+// const onShowIssueSuccess = function (res) {
+//   $('#show-issue').trigger('reset')
+//   console.log(res)
+//   // $('#issue-display-text').html(res.issue.text)
 
-  const display = $('#issue-display-text')
+//   const display = $('#issue-display-text')
 
-  const card = document.createElement('div')
-  $(card).addClass('card')
-  $(card).html('<div class="card-body"><h4 class="card-title">' + res.issue.title +
-  '</h4><p class="card-text">' + res.issue.text + '</p><form class="delete-issue"><input type="hidden" name="issueId" value="' +
-  res.issue._id + '"><button type="submit" class="btn btn-danger">Delete Issue</button></form></div>')
-  $(display).append(card)
+//   const card = document.createElement('div')
+//   $(card).addClass('card')
+//   $(card).html('<div class="card-body"><h4 class="card-title">' + res.issue.title +
+//   '</h4><p class="card-text">' + res.issue.text + '</p><form class="delete-issue"><input type="hidden" name="issueId" value="' +
+//   res.issue._id + '"><button type="submit" class="btn btn-danger">Delete Issue</button></form></div>')
+//   $(display).append(card)
 
-  res.issue.comments.forEach(comments => {
-    const list = document.createElement('li')
-    $(list).addClass('list-group-item')
-    $(list).html('<p>' + comments.text + '</p>')
-    $(card).append(list)
-  })
-}
+//   res.issue.comments.forEach(comments => {
+//     const list = document.createElement('li')
+//     $(list).addClass('list-group-item')
+//     $(list).html('<p>' + comments.text + '</p>')
+//     $(card).append(list)
+//   })
+// }
 
 const onCreateCommentSuccess = function (res) {
   $('.create-comments').trigger('reset')
@@ -228,7 +229,7 @@ module.exports = {
   onDeleteIssueSuccess,
   onUpdateIssueSuccess,
   onShowIssuesSuccess,
-  onShowIssueSuccess,
+  // onShowIssueSuccess,
   onCreateCommentSuccess,
   onDeleteCommentSuccess,
   onUpdateCommentSuccess,

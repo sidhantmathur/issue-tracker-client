@@ -65,8 +65,7 @@ const addProfileListeners = function () {
 const onShowIssues = function () {
   api.showIssues()
     .then(ui.onShowIssuesSuccess)
-    // .then(addChecker)
-    // .then(addCreateListener)
+    .then(addQueueListeners)
     .catch(ui.onShowIssuesError)
 }
 

@@ -10,6 +10,7 @@ const issueEvents = require('./issues/events')
 
 $(() => {
   $('#signed-in-nav').hide()
+  $('#user-message').hide()
 
   $('#pub-display').hide()
   $('#user-display').hide()

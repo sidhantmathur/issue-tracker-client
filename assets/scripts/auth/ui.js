@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('./../store')
+const issueEvents = require('./../issues/events')
 
 const onSignUpSuccess = function (res) {
   $('.alert').show()
@@ -20,6 +21,8 @@ const onSignInSuccess = function (res) {
   $('#pub-display').show()
 
   $('#signed-in-nav').show()
+
+  issueEvents.onShowIssues()
 }
 
 const onChangePassSuccess = function () {
