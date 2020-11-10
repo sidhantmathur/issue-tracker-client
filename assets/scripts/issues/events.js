@@ -128,7 +128,7 @@ const onNext = function () {
   if ($('.list-group').children(':visible').length < 5) {
     console.log('no more')
     $('.next').prop('disabled', true)
-  } else if (($('.list-group').children().length) < (endIndex + 5)) {
+  } else if (($('.list-group').children().length) <= (endIndex + 5)) {
     console.log('weird conditions met')
     $('.next').prop('disabled', true)
     $('.list-group a').css('display', 'none')
