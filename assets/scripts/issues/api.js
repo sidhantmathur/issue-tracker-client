@@ -12,7 +12,8 @@ const createIssue = function (formData) {
     data: {
       issue: {
         text: formData.text,
-        title: formData.title
+        title: formData.title,
+        tag: formData.tag
       }
     }
   })
@@ -38,7 +39,8 @@ const updateIssue = function (formData) {
     data: {
       issue: {
         text: formData.text,
-        title: formData.title
+        title: formData.title,
+        tag: formData.tag
       }
     }
   })
