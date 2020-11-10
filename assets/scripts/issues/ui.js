@@ -17,7 +17,7 @@ const onCreateIssueSuccess = function (res) {
   $(list2).addClass('tab-pane fade')
   $(list2).attr('id', 'list-' + res.issue._id)
 
-  $(list).html('<h4>' + res.issue.title + '</h4>' + '<p>' + res.issue.text + '</p><h6>' + res.issue.tag + '</h6>')
+  $(list).html('<h4>' + res.issue.title + '</h4><p>' + res.issue.text + '</p><h6>' + res.issue.tag + '</h6>')
 
   $(list2).html('<form class="create-comments"><h2>Create Comment</h2><textarea type="text" name="text" class="form-control" placeholder="Text"></textarea><input type="hidden" value="' +
   res.issue._id + '" name="issueId" class="form-control" placeholder="Issue ID" required><input type="submit" class="btn btn-primary" value="Create Comment"></form>')
@@ -115,28 +115,6 @@ const onShowIssuesSuccess = function (res) {
   $('.prev').prop('disabled', true)
   $('.next').prop('disabled', false)
 }
-
-// const onShowIssueSuccess = function (res) {
-//   $('#show-issue').trigger('reset')
-//   console.log(res)
-//   // $('#issue-display-text').html(res.issue.text)
-
-//   const display = $('#issue-display-text')
-
-//   const card = document.createElement('div')
-//   $(card).addClass('card')
-//   $(card).html('<div class="card-body"><h4 class="card-title">' + res.issue.title +
-//   '</h4><p class="card-text">' + res.issue.text + '</p><form class="delete-issue"><input type="hidden" name="issueId" value="' +
-//   res.issue._id + '"><button type="submit" class="btn btn-danger">Delete Issue</button></form></div>')
-//   $(display).append(card)
-
-//   res.issue.comments.forEach(comments => {
-//     const list = document.createElement('li')
-//     $(list).addClass('list-group-item')
-//     $(list).html('<p>' + comments.text + '</p>')
-//     $(card).append(list)
-//   })
-// }
 
 const onCreateCommentSuccess = function (res) {
   $('.create-comments').trigger('reset')
@@ -237,7 +215,6 @@ module.exports = {
   onDeleteIssueSuccess,
   onUpdateIssueSuccess,
   onShowIssuesSuccess,
-  // onShowIssueSuccess,
   onCreateCommentSuccess,
   onDeleteCommentSuccess,
   onUpdateCommentSuccess,

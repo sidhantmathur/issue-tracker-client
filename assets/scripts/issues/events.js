@@ -45,22 +45,6 @@ const addProfileListeners = function () {
   $('.update-issues').on('submit', onUpdateIssue)
 }
 
-// const addChecker = function () {
-//   console.log(store.user)
-//   // // https://stackoverflow.com/a/39018563/9190545
-//   // const $inputValues = $('.comm-own').map(function () {
-//   //   return $(this).val()
-//   // })
-
-//   // console.log($inputValues)
-
-//   // for (let i = 0; i < $inputValues.length; i++) {
-//   //   if (store.user._id === $inputValues[i]) {
-//   //     console.log('this comment is yours')
-//   //   }
-//   // }
-// }
-
 // no form except token. Removing forms allows .then after sign in
 const onShowIssues = function () {
   api.showIssues()

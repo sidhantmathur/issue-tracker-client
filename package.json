@@ -1,11 +1,8 @@
 {
-  "name": "Issue-Tracker-client",
+  "name": "issue-tracker-client",
   "version": "0.0.3",
   "private": true,
-  "license": {
-    "software": "GNU GPLv3",
-    "content": "CC­BY­NC­SA 4.0"
-  },
+  "license": "ISC",
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.1.2",
