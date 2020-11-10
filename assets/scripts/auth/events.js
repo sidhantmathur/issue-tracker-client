@@ -46,9 +46,16 @@ const onSignOut = function (event) {
     .catch(ui.onSignOutError)
 }
 
+const onShowSettings = function () {
+  $('#user-settings').show()
+  $('#user-display').hide()
+  $('#pub-display').hide()
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePass,
-  onSignOut
+  onSignOut,
+  onShowSettings
 }

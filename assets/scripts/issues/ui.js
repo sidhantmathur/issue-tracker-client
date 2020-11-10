@@ -49,10 +49,9 @@ const onShowIssuesSuccess = function (res) {
   const display = $('#issue-display-text')
   const display2 = $('#comment-display')
 
-  $('#user-issues').hide()
-  $('#profile-head').hide()
-  $('#issue-queue').show()
-  $('#queue-head').show()
+  $('#user-settings').hide()
+  $('#user-display').hide()
+  $('#pub-display').show()
 
   $(display).empty()
   $(display2).empty()
@@ -192,12 +191,10 @@ const onUpdateCommentError = function (error) {
 
 const onShowProfileSuccess = function (res) {
   console.log(res)
-  const display = $('#user-issues')
+  const display = $('#user-display')
 
-  $('#issue-queue').hide()
-
-  $('#profile-head').show()
-  $('#queue-head').hide()
+  $('#user-settings').hide()
+  $('#pub-display').hide()
 
   $(display).show()
 
