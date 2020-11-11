@@ -4,7 +4,7 @@ const issueEvents = require('./events')
 
 const onCreateIssueSuccess = function (res) {
   $('#create-issue').trigger('reset')
-  console.log(res)
+  // console.log(res)
   const display = $('#issue-display-text')
   const display2 = $('#comment-display')
   const list = document.createElement('a')
@@ -33,25 +33,25 @@ const onCreateIssueSuccess = function (res) {
 const onDeleteIssueSuccess = function (res) {
   $('#auth-display-text').text('Issue Deleted!')
   $('#delete-issue').trigger('reset')
-  console.log(res)
+  // console.log(res)
 }
 
 const onUpdateIssueSuccess = function (res) {
   $('#auth-display-text').text('Issue Updated!')
   $('.update-issues').trigger('reset')
-  console.log(res)
+  // console.log(res)
 }
 
 const onShowIssuesSuccess = function (res) {
   // if (!store.user) {
-  //   console.log('no store yet in UI')
-  //   console.log(store.user)
+  //   // console.log('no store yet in UI')
+  //   // console.log(store.user)
   // } else {
-  //   console.log('store is here')
-  //   console.log(store.user)
+  //   // console.log('store is here')
+  //   // console.log(store.user)
   // }
   // $('#show-issues').trigger('reset')
-  console.log(res)
+  // console.log(res)
   // console.log(res.issues)
   const display = $('#issue-display-text')
   const display2 = $('#comment-display')
@@ -122,7 +122,7 @@ const onShowIssuesSuccess = function (res) {
 
 const onCreateCommentSuccess = function (res) {
   $('.create-comments').trigger('reset')
-  console.log(res)
+  // console.log(res)
   const display = $('#list-' + res.issue._id)
   const list = document.createElement('li')
   $(list).addClass('list-group-item')
@@ -135,54 +135,57 @@ const onCreateCommentSuccess = function (res) {
 const onDeleteCommentSuccess = function (res) {
   // $('.delete-comments').trigger('reset')
   $('#auth-display-text').text('Comment Updated!')
-  console.log(res)
+  // console.log(res)
 }
 
 const onUpdateCommentSuccess = function (res) {
   // $('.update-comments').trigger('reset')
   $('#auth-display-text').text('Comment Updated!')
-  console.log(res)
+  // console.log(res)
 }
 
 const onCreateIssueError = function (error) {
   $('#create-issue').trigger('reset')
   $('#auth-display-text').text('Error Creating Issue: ' + error.statusText + ' Status Code: ' + error.status)
-  console.log(error)
+  // console.log(error)
 }
 
 const onDeleteIssueError = function (error) {
   $('#auth-display-text').text('Error Deleting Issue: ' + error.statusText + ' Status Code: ' + error.status)
-  console.log(error)
+  // console.log(error)
 }
 
 const onUpdateIssueError = function (error) {
   $('.update-issues').trigger('reset')
   $('#auth-display-text').text('Error Updating Issue: ' + error.statusText + ' Status Code: ' + error.status)
-  console.log(error)
+  // console.log(error)
 }
 
 const onShowIssuesError = function (error) {
   $('#auth-display-text').text('Error Getting Issues: ' + error.statusText + ' Status Code: ' + error.status)
-  console.log(error)
+  // console.log(error)
 }
 
 const onCreateCommentError = function (error) {
   $('.create-comment').trigger('reset')
-  console.log(error)
+  $('#auth-display-text').text('Error Creating Comment: ' + error.statusText + ' Status Code: ' + error.status)
+  // console.log(error)
 }
 
 const onDeleteCommentError = function (error) {
   // $('.delete-comment').trigger('reset')
-  console.log(error)
+  $('#auth-display-text').text('Error Deleting Comment: ' + error.statusText + ' Status Code: ' + error.status)
+  // console.log(error)
 }
 
 const onUpdateCommentError = function (error) {
   // $('.update-comment').trigger('reset')
-  console.log(error)
+  $('#auth-display-text').text('Error Updating Comment: ' + error.statusText + ' Status Code: ' + error.status)
+  // console.log(error)
 }
 
 const onShowProfileSuccess = function (res) {
-  console.log(res)
+  // console.log(res)
   const display = $('#user-issues')
 
   $('#user-display').show()
@@ -198,7 +201,7 @@ const onShowProfileSuccess = function (res) {
 
   $(display).show()
 
-  console.log(res)
+  // console.log(res)
 
   $(display).empty()
 
@@ -217,16 +220,17 @@ const onShowProfileSuccess = function (res) {
   }
 }
 const onShowProfileError = function (error) {
-  console.log(error)
+  $('#auth-display-text').text('Error Getting Profile: ' + error.statusText + ' Status Code: ' + error.status)
+  // console.log(error)
 }
 
 const onTrelloError = function (error) {
   $('#auth-display-text').text('Error Getting Issues: ' + error.statusText + ' Status Code: ' + error.status)
-  console.log(error)
+  // console.log(error)
 }
 
 const onTrelloSuccess = function (res) {
-  console.log(res)
+  // console.log(res)
 
   $('#user-issues').toggle()
   $('#trello-disp').toggle()
@@ -254,7 +258,7 @@ const onTrelloSuccess = function (res) {
 }
 
 const onTrelloSuccess2 = function (res) {
-  console.log(res)
+  // console.log(res)
 
   $('#issue-queue').toggle()
   $('#trello-disp2').toggle()
