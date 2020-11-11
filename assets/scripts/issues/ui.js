@@ -112,11 +112,11 @@ const onShowIssuesSuccess = function (res) {
     }
   }
 
-  issueEvents.begIndex = 1
-  issueEvents.endIndex = 5
-  $('.list-group a:nth-child(n+1):nth-child(-n+5)').css('display', 'block')
-  $('.prev').prop('disabled', true)
-  $('.next').prop('disabled', false)
+  // issueEvents.begIndex = 1
+  // issueEvents.endIndex = 5
+  // $('.list-group a:nth-child(n+1):nth-child(-n+5)').css('display', 'block')
+  // $('.prev').prop('disabled', true)
+  // $('.next').prop('disabled', false)
 }
 
 const onCreateCommentSuccess = function (res) {
