@@ -81,11 +81,13 @@ const onShowIssuesSuccess = function (res) {
     $(list).addClass('list-group-item list-group-item-action')
     $(list).attr('data-toggle', 'list')
     $(list).attr('href', '#list-' + issArr._id)
+    $(list).attr('role', 'tab')
     $(list).html('<h4>' + issArr.title + '</h4><p>' + issArr.text + '</p><h6>' + issArr.tag + '</h6>')
 
     const list2 = document.createElement('div')
     $(list2).addClass('tab-pane fade')
     $(list2).attr('id', 'list-' + issArr._id)
+    $(list2).attr('role', 'tabpanel')
 
     $(list2).html('<form class="create-comments"><textarea type="text" name="text" class="form-control" placeholder="Add a comment"></textarea><input type="hidden" value="' + issArr._id + '" name="issueId" class="form-control" placeholder="Issue ID" required><input type="submit" class="btn btn-primary" value="Comment"></form>')
     $('.create-comment').on('submit', issueEvents.onCreateComment)
