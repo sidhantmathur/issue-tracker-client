@@ -58,10 +58,24 @@ const onShowSettings = function () {
   // $('#nav-settings').addClass('active')
 }
 
+const onAuthToggle = function () {
+  $('#sign-up').toggle()
+  $('#sign-in').toggle()
+
+  // $('#auth-toggle').val($('#auth-toggle').val() == 'Sign In' ? 'Sign Up' : 'Sign In')
+
+  if ($('#auth-toggle').text() === 'Sign In') {
+    $('#auth-toggle').text('Sign Up')
+  } else if ($('#auth-toggle').text() === 'Sign Up') {
+    $('#auth-toggle').text('Sign In')
+  }
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePass,
   onSignOut,
-  onShowSettings
+  onShowSettings,
+  onAuthToggle
 }

@@ -57,18 +57,19 @@
           <input type="email" class="form-control" name="auth[email]" placeholder="Email" required>
           <input type="password" class="form-control" name="auth[password]" placeholder="Password" required>
           <input type="password" class="form-control" name="auth[confirmPassword]" placeholder="Password Confirmation" required>
-          <input type="submit" class="btn btn-primary">
+          <input type="submit" class="btn btn-primary" value="Sign Up">
       </form>
       <form id="sign-in">
         <h2 class="mb-3">Sign In</h2>
           <input type="email" class="form-control" name="auth[email]" placeholder="Email" required>
           <input type="password" class="form-control" name="auth[password]" placeholder="Password" required>
-          <input type="submit" class="btn btn-primary">
+          <input type="submit" class="btn btn-primary"value="Sign In">
       </form>
+      <button id="auth-toggle" class="btn btn-link">Sign Up</button>
       <form id="guest">
         <input type="hidden" class="form-control" name="auth[email]" placeholder="Email" value="a@a.com" required>
         <input type="hidden" class="form-control" name="auth[password]" placeholder="Password" value="a" required>
-        <input type="submit" class="btn btn-secondary" value="Sign In as Guest">
+        <input type="submit" class="btn btn-link" value="Sign In as Guest">
       </form>
     </div>
 

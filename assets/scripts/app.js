@@ -10,6 +10,7 @@ const issueEvents = require('./issues/events')
 
 $(() => {
   $('#signed-in-nav').hide()
+  $('#sign-up').hide()
   $('#user-message').hide()
   $('#pub-display').hide()
   $('#user-display').hide()
@@ -43,4 +44,6 @@ $(() => {
   $('#edit').on('click', issueEvents.onEditTrello)
 
   $('#trello2').on('click', issueEvents.onShowTrello2)
+
+  $('#auth-toggle').on('click', authEvents.onAuthToggle)
 })
