@@ -4,12 +4,33 @@ form h4 {
   margin-top: 15px;
 }
 
+input[type=password] {
+  max-width: 340px;
+}
+
 // .col-4 {
 //   border-color: #343a40;
 //   border: 1px solid;
 // }
-
-.col-4 div li {
+.create-comments .btn {
+  margin-top: 0px;
+}
+textarea {
+  margin-top: 10px;
+}
+.bg-warning {
+  // color: #fff; 
+  // border: solid 1px #fff;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+.bg-success {
+  // color: #fff; 
+  // border: solid 1px #fff;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+.bg-info {
   // color: #fff; 
   // border: solid 1px #fff;
   border-radius: 4px;

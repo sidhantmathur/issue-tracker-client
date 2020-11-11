@@ -18,8 +18,8 @@ const onCreateIssueSuccess = function (res) {
 
   $(list).html('<h4>' + res.issue.title + '</h4><p>' + res.issue.text + '</p><h6>' + res.issue.tag + '</h6>')
 
-  $(list2).html('<form class="create-comments"><h4>Create Comment</h4><textarea type="text" name="text" class="form-control" placeholder="Text"></textarea><input type="hidden" value="' +
-  res.issue._id + '" name="issueId" class="form-control" placeholder="Issue ID" required><input type="submit" class="btn btn-primary" value="Create Comment"></form>')
+  $(list2).html('<form class="create-comments"><textarea type="text" name="text" class="form-control" placeholder="Add a commment"></textarea><input type="hidden" value="' +
+  res.issue._id + '" name="issueId" class="form-control" placeholder="Issue ID" required><input type="submit" class="btn btn-primary" value="Comment"></form>')
   $(display).prepend(list)
   $(display2.prepend(list2))
 
@@ -86,7 +86,7 @@ const onShowIssuesSuccess = function (res) {
     $(list2).addClass('tab-pane fade')
     $(list2).attr('id', 'list-' + issArr._id)
 
-    $(list2).html('<form class="create-comments"><h4>Create Comment</h4><textarea type="text" name="text" class="form-control" placeholder="Text"></textarea><input type="hidden" value="' + issArr._id + '" name="issueId" class="form-control" placeholder="Issue ID" required><input type="submit" class="btn btn-primary" value="Create Comment"></form>')
+    $(list2).html('<form class="create-comments"><textarea type="text" name="text" class="form-control" placeholder="Add a comment"></textarea><input type="hidden" value="' + issArr._id + '" name="issueId" class="form-control" placeholder="Issue ID" required><input type="submit" class="btn btn-primary" value="Comment"></form>')
     $('.create-comment').on('submit', issueEvents.onCreateComment)
     $(display2).append(list2)
     $(display).append(list)
@@ -243,11 +243,11 @@ const onTrelloSuccess = function (res) {
     const issArr = res.issues[i]
 
     if (issArr.tag === 'New') {
-      $(disp1).append('<li class="list-group-item bg-warning"><h4>' + issArr.title + '</h4><p>' + issArr.text + '</p><form class="update-issues form-inline"><input type="hidden" name="issueId" value="' + issArr._id + '"><select name="tag" class="form-control mr-1"><option>New</option><option>In Progress</option><option>Solved</option><input type="submit" class="btn btn-secondary" value="Change"></form></li>')
+      $(disp1).append('<li class="list-group-item bg-warning"><h4>' + issArr.title + '</h4><p>' + issArr.text + '</p><form class="update-issues form-inline" style="display: none"><input type="hidden" name="issueId" value="' + issArr._id + '"><select name="tag" class="form-control mr-1"><option>New</option><option>In Progress</option><option>Solved</option><input type="submit" class="btn btn-secondary" value="Change"></form></li>')
     } else if (issArr.tag === 'In Progress') {
-      $(disp2).append('<li class="list-group-item bg-info"><h4>' + issArr.title + '</h4><p>' + issArr.text + '</p><form class="update-issues form-inline"><input type="hidden" name="issueId" value="' + issArr._id + '"><select name="tag" class="form-control mr-1"><option>New</option><option>In Progress</option><option>Solved</option><input type="submit" class="btn btn-secondary" value="Change"></form></li>')
+      $(disp2).append('<li class="list-group-item bg-info"><h4>' + issArr.title + '</h4><p>' + issArr.text + '</p><form class="update-issues form-inline" style="display: none"><input type="hidden" name="issueId" value="' + issArr._id + '"><select name="tag" class="form-control mr-1"><option>New</option><option>In Progress</option><option>Solved</option><input type="submit" class="btn btn-secondary" value="Change"></form></li>')
     } else if (issArr.tag === 'Solved') {
-      $(disp3).append('<li class="list-group-item bg-success"><h4>' + issArr.title + '</h4><p>' + issArr.text + '</p><form class="update-issues form-inline"><input type="hidden" name="issueId" value="' + issArr._id + '"><select name="tag" class="form-control mr-1"><option>New</option><option>In Progress</option><option>Solved</option><input type="submit" class="btn btn-secondary" value="Change"></form></li>')
+      $(disp3).append('<li class="list-group-item bg-success"><h4>' + issArr.title + '</h4><p>' + issArr.text + '</p><form class="update-issues form-inline" style="display: none"><input type="hidden" name="issueId" value="' + issArr._id + '"><select name="tag" class="form-control mr-1"><option>New</option><option>In Progress</option><option>Solved</option><input type="submit" class="btn btn-secondary" value="Change"></form></li>')
     }
   }
 }

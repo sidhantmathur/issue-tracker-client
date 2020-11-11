@@ -15,6 +15,7 @@ $(() => {
   $('#user-display').hide()
   $('#user-settings').hide()
   $('#trello-disp').hide()
+  $('.update-issues').hide()
 
   $('#guest').on('submit', authEvents.onSignIn)
   $('#sign-up').on('submit', authEvents.onSignUp)
@@ -36,4 +37,6 @@ $(() => {
   $('#settings').on('click', authEvents.onShowSettings)
 
   $('#trello').on('click', issueEvents.onShowTrello)
+
+  $('#edit').on('click', issueEvents.onEditTrello)
 })

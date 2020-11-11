@@ -55,8 +55,11 @@ const showIssues = function (formData) {
 
 const showTrello = function (formData) {
   return $.ajax({
-    url: config.apiUrl + '/issues',
-    method: 'GET'
+    url: config.apiUrl + '/issues-user',
+    method: 'GET',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
   })
 }
 

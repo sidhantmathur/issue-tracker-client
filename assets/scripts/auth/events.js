@@ -48,6 +48,7 @@ const onShowSettings = function () {
   $('#user-settings').show()
   $('#user-display').hide()
   $('#pub-display').hide()
+  $('#trello-disp').hide()
   $('#welcome').text('Welcome ' + store.user.email)
 
   // $('#nav-queue').removeClass('active')

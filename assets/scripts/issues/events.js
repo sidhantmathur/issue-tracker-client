@@ -119,6 +119,10 @@ const onShowProfile = function (event) {
     .catch(ui.onShowProfileError)
 }
 
+const onEditTrello = function () {
+  $('.update-issues').toggle()
+}
+
 // let begIndex = 1
 // let endIndex = 5
 
@@ -178,5 +182,6 @@ module.exports = {
   // onPrev,
   onShowProfile,
   onShowTrello,
-  addTrelloListeners
+  addTrelloListeners,
+  onEditTrello
 }
