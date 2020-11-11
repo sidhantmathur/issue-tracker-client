@@ -45,6 +45,10 @@ const addProfileListeners = function () {
   $('.update-issues').on('submit', onUpdateIssue)
 }
 
+const addTrelloListeners = function () {
+  $('.update-issues').on('submit', onUpdateIssue)
+}
+
 // no form except token. Removing forms allows .then after sign in
 const onShowIssues = function () {
   api.showIssues()
@@ -91,6 +95,17 @@ const onUpdateComment = function (event) {
   api.updateComment(formData)
     .then(ui.onUpdateCommentSuccess)
     .catch(ui.onUpdateCommentError)
+}
+
+const onShowTrello = function (event) {
+  event.preventDefault()
+
+  const form = event.target
+  const formData = getFormFields(form)
+  api.showTrello(formData)
+    .then(ui.onTrelloSuccess)
+    .then(addTrelloListeners)
+    .catch(ui.onTrelloError)
 }
 
 const onShowProfile = function (event) {
@@ -161,5 +176,7 @@ module.exports = {
   addProfileListeners,
   onNext,
   onPrev,
-  onShowProfile
+  onShowProfile,
+  onShowTrello,
+  addTrelloListeners
 }

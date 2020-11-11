@@ -30,6 +30,9 @@
           <li id="nav-queue" class="nav-item">
             <a id="queue" class="nav-link" href="#">Queue</a>
           </li>
+          <li id="trello-queue" class="nav-item">
+            <a id="trello" class="nav-link" href="#">Kanban</a>
+          </li>
           <li id="profile-queue" class="nav-item">
             <a id="profile" class="nav-link" href="#">Profile</a>
           </li>
@@ -92,13 +95,31 @@
       </div>
 
       <div class="row" id="issue-queue">
-        <div class="col-lg-5">
+        <div class="col-md-5">
           <div class="list-group list-group-flush" id="issue-display-text" role="tablist"></div>
           <button class="btn btn-secondary prev">&laquo Prev Page</button>
           <button class="btn btn-secondary next">Next Page &raquo</button>
         </div>
-        <div class="col-lg-7">
+        <div class="col-md-7">
           <div class="tab-content" id="comment-display"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" id="trello-disp">
+      <div class="col-md-4">
+        <h4>New</h4>
+        <div class="list-group" id="new-disp" role="tablist">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h4>In Progress</h4>
+        <div class="list-group" id="wip-disp" role="tablist">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h4>Solved</h4>
+        <div class="list-group" id="sol-disp" role="tablist">
         </div>
       </div>
     </div>

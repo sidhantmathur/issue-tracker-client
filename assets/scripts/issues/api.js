@@ -49,10 +49,14 @@ const updateIssue = function (formData) {
 const showIssues = function (formData) {
   return $.ajax({
     url: config.apiUrl + '/issues',
-    method: 'GET'//,
-    // headers: {
-    //   Authorization: 'Bearer ' + store.user.token
-    // }
+    method: 'GET'
+  })
+}
+
+const showTrello = function (formData) {
+  return $.ajax({
+    url: config.apiUrl + '/issues',
+    method: 'GET'
   })
 }
 
@@ -132,5 +136,6 @@ module.exports = {
   createComment,
   deleteComment,
   updateComment,
-  showProfile
+  showProfile,
+  showTrello
 }

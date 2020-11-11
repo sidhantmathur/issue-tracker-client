@@ -1,5 +1,30 @@
 @import '~bootstrap/scss/bootstrap';
 
+form h4 {
+  margin-top: 15px;
+}
+
+// .col-4 {
+//   border-color: #343a40;
+//   border: 1px solid;
+// }
+
+.col-4 div li {
+  // color: #fff; 
+  // border: solid 1px #fff;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+// .col-4 div .new {
+//   background-color: #ffc107;
+// }
+// .col-4 div .wip {
+//   background-color: #17a2b8;
+// }
+// .col-4 div .sol {
+//   background-color: #28a745;
+// }
 
 #create-collapse {
   margin-bottom: 10px;
@@ -27,10 +52,12 @@ textarea {
 
 .list-group-item {
   white-space: pre-line;
+  overflow-wrap: break-word;
 }
 
 a p {
   white-space: pre-line;
+  overflow-wrap: break-word;
 }
 
 .list-group a {

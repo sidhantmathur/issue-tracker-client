@@ -1,4 +1,3 @@
-
 'use strict'
 const issueEvents = require('./events')
 // const store = require('./../store')
@@ -19,7 +18,7 @@ const onCreateIssueSuccess = function (res) {
 
   $(list).html('<h4>' + res.issue.title + '</h4><p>' + res.issue.text + '</p><h6>' + res.issue.tag + '</h6>')
 
-  $(list2).html('<form class="create-comments"><h2>Create Comment</h2><textarea type="text" name="text" class="form-control" placeholder="Text"></textarea><input type="hidden" value="' +
+  $(list2).html('<form class="create-comments"><h4>Create Comment</h4><textarea type="text" name="text" class="form-control" placeholder="Text"></textarea><input type="hidden" value="' +
   res.issue._id + '" name="issueId" class="form-control" placeholder="Issue ID" required><input type="submit" class="btn btn-primary" value="Create Comment"></form>')
   $(display).prepend(list)
   $(display2.prepend(list2))
@@ -39,7 +38,7 @@ const onDeleteIssueSuccess = function (res) {
 
 const onUpdateIssueSuccess = function (res) {
   $('#auth-display-text').text('Issue Updated!')
-  $('#update-issue').trigger('reset')
+  $('.update-issues').trigger('reset')
   console.log(res)
 }
 
@@ -60,6 +59,8 @@ const onShowIssuesSuccess = function (res) {
   $('#user-settings').hide()
   $('#user-display').hide()
   $('#pub-display').show()
+
+  $('#trello-disp').hide()
 
   // $('#nav-queue').addClass('active')
   // $('#nav-profile').removeClass('active')
@@ -85,7 +86,7 @@ const onShowIssuesSuccess = function (res) {
     $(list2).addClass('tab-pane fade')
     $(list2).attr('id', 'list-' + issArr._id)
 
-    $(list2).html('<form class="create-comments"><h2>Create Comment</h2><textarea type="text" name="text" class="form-control" placeholder="Text"></textarea><input type="hidden" value="' + issArr._id + '" name="issueId" class="form-control" placeholder="Issue ID" required><input type="submit" class="btn btn-primary" value="Create Comment"></form>')
+    $(list2).html('<form class="create-comments"><h4>Create Comment</h4><textarea type="text" name="text" class="form-control" placeholder="Text"></textarea><input type="hidden" value="' + issArr._id + '" name="issueId" class="form-control" placeholder="Issue ID" required><input type="submit" class="btn btn-primary" value="Create Comment"></form>')
     $('.create-comment').on('submit', issueEvents.onCreateComment)
     $(display2).append(list2)
     $(display).append(list)
@@ -187,6 +188,8 @@ const onShowProfileSuccess = function (res) {
   $('#user-settings').hide()
   $('#pub-display').hide()
 
+  $('#trello-disp').hide()
+
   // $('#nav-queue').removeClass('active')
   // $('#nav-profile').addClass('active')
   // $('#nav-settings').removeClass('active')
@@ -215,6 +218,40 @@ const onShowProfileError = function (error) {
   console.log(error)
 }
 
+const onTrelloError = function (error) {
+  $('#auth-display-text').text('Error Getting Issues: ' + error.statusText + ' Status Code: ' + error.status)
+  console.log(error)
+}
+
+const onTrelloSuccess = function (res) {
+  console.log(res)
+  $('#trello-disp').show()
+
+  $('#user-display').hide()
+  $('#user-settings').hide()
+  $('#pub-display').hide()
+
+  const disp1 = $('#new-disp')
+  const disp2 = $('#wip-disp')
+  const disp3 = $('#sol-disp')
+
+  $(disp1).empty()
+  $(disp2).empty()
+  $(disp3).empty()
+
+  for (let i = 0; i < res.issues.length; i++) {
+    const issArr = res.issues[i]
+
+    if (issArr.tag === 'New') {
+      $(disp1).append('<li class="list-group-item bg-warning"><h4>' + issArr.title + '</h4><p>' + issArr.text + '</p><form class="update-issues form-inline"><input type="hidden" name="issueId" value="' + issArr._id + '"><select name="tag" class="form-control mr-1"><option>New</option><option>In Progress</option><option>Solved</option><input type="submit" class="btn btn-secondary" value="Change"></form></li>')
+    } else if (issArr.tag === 'In Progress') {
+      $(disp2).append('<li class="list-group-item bg-info"><h4>' + issArr.title + '</h4><p>' + issArr.text + '</p><form class="update-issues form-inline"><input type="hidden" name="issueId" value="' + issArr._id + '"><select name="tag" class="form-control mr-1"><option>New</option><option>In Progress</option><option>Solved</option><input type="submit" class="btn btn-secondary" value="Change"></form></li>')
+    } else if (issArr.tag === 'Solved') {
+      $(disp3).append('<li class="list-group-item bg-success"><h4>' + issArr.title + '</h4><p>' + issArr.text + '</p><form class="update-issues form-inline"><input type="hidden" name="issueId" value="' + issArr._id + '"><select name="tag" class="form-control mr-1"><option>New</option><option>In Progress</option><option>Solved</option><input type="submit" class="btn btn-secondary" value="Change"></form></li>')
+    }
+  }
+}
+
 module.exports = {
   onCreateIssueSuccess,
   onDeleteIssueSuccess,
@@ -231,5 +268,7 @@ module.exports = {
   onDeleteCommentError,
   onUpdateCommentError,
   onShowProfileError,
-  onShowProfileSuccess
+  onShowProfileSuccess,
+  onTrelloError,
+  onTrelloSuccess
 }
