@@ -63,6 +63,13 @@ const showTrello = function (formData) {
   })
 }
 
+const showTrello2 = function (formData) {
+  return $.ajax({
+    url: config.apiUrl + '/issues',
+    method: 'GET'
+  })
+}
+
 const showProfile = function (formData) {
   return $.ajax({
     url: config.apiUrl + '/issues-user',
@@ -140,5 +147,6 @@ module.exports = {
   deleteComment,
   updateComment,
   showProfile,
-  showTrello
+  showTrello,
+  showTrello2
 }

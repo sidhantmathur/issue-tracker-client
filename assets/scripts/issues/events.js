@@ -108,6 +108,17 @@ const onShowTrello = function (event) {
     .catch(ui.onTrelloError)
 }
 
+const onShowTrello2 = function (event) {
+  event.preventDefault()
+
+  const form = event.target
+  const formData = getFormFields(form)
+  api.showTrello2(formData)
+    .then(ui.onTrelloSuccess2)
+    .then(addTrelloListeners)
+    .catch(ui.onTrelloError)
+}
+
 const onShowProfile = function (event) {
   event.preventDefault()
 
@@ -183,5 +194,6 @@ module.exports = {
   onShowProfile,
   onShowTrello,
   addTrelloListeners,
-  onEditTrello
+  onEditTrello,
+  onShowTrello2
 }

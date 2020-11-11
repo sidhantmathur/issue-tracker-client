@@ -30,9 +30,9 @@
           <li id="nav-queue" class="nav-item">
             <a id="queue" class="nav-link" href="#">Queue</a>
           </li>
-          <li id="trello-queue" class="nav-item">
+          <!-- <li id="trello-queue" class="nav-item">
             <a id="trello" class="nav-link" href="#">Kanban</a>
-          </li>
+          </li> -->
           <li id="profile-queue" class="nav-item">
             <a id="profile" class="nav-link" href="#">Profile</a>
           </li>
@@ -77,6 +77,7 @@
       <a class="btn btn-success" data-toggle="collapse" href="#create-collapse" role="button" aria-expanded="false" aria-controls="create-collapse">
         Create Issue
       </a>
+      <button class="btn btn-info" id="trello2">Toggle View</button>
       <div class="collapse" id="create-collapse">
         <div class="card card-body">
           <form id="create-issue">
@@ -108,34 +109,56 @@
           <div class="tab-content" id="comment-display"></div>
         </div>
       </div>
-    </div>
 
-
-    <div id="trello-disp">
-      <h1>Kanban Board</h1>
-      <button class="btn btn-info" id="edit">Edit Board</button>
-      <div class="row">
-        <div class="col-md-4">
-          <h4 class="mt-3">New</h4>
-          <div class="list-group" id="new-disp" role="tablist">
+      <div id="trello-disp2">
+        <div class="row">
+          <div class="col-md-4">
+            <h4 class="mt-3">New</h4>
+            <div class="list-group" id="new-disp2" role="tablist">
+            </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          <h4 class="mt-3">In Progress</h4>
-          <div class="list-group" id="wip-disp" role="tablist">
+          <div class="col-md-4">
+            <h4 class="mt-3">In Progress</h4>
+            <div class="list-group" id="wip-disp2" role="tablist">
+            </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          <h4 class="mt-3">Solved</h4>
-          <div class="list-group" id="sol-disp" role="tablist">
+          <div class="col-md-4">
+            <h4 class="mt-3">Solved</h4>
+            <div class="list-group" id="sol-disp2" role="tablist">
+            </div>
           </div>
         </div>
       </div>
+
     </div>
 
     <div id="user-display">
       <h1>User Issues</h1>
+      <button class="btn btn-info" id="trello">Toggle View</button>
+      <button class="btn btn-warning" id="edit">Edit Tags</button>
+
       <div class="list group list-group-flush" id="user-issues" role="tablist"></div>
+
+      <div id="trello-disp">
+        <div class="row">
+          <div class="col-md-4">
+            <h4 class="mt-3">New</h4>
+            <div class="list-group" id="new-disp" role="tablist">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <h4 class="mt-3">In Progress</h4>
+            <div class="list-group" id="wip-disp" role="tablist">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <h4 class="mt-3">Solved</h4>
+            <div class="list-group" id="sol-disp" role="tablist">
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <div id="user-settings">

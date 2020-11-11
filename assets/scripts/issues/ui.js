@@ -61,6 +61,7 @@ const onShowIssuesSuccess = function (res) {
   $('#pub-display').show()
 
   $('#trello-disp').hide()
+  $('#edit').hide()
 
   // $('#nav-queue').addClass('active')
   // $('#nav-profile').removeClass('active')
@@ -189,6 +190,7 @@ const onShowProfileSuccess = function (res) {
   $('#pub-display').hide()
 
   $('#trello-disp').hide()
+  $('#edit').hide()
 
   // $('#nav-queue').removeClass('active')
   // $('#nav-profile').addClass('active')
@@ -225,11 +227,10 @@ const onTrelloError = function (error) {
 
 const onTrelloSuccess = function (res) {
   console.log(res)
-  $('#trello-disp').show()
 
-  $('#user-display').hide()
-  $('#user-settings').hide()
-  $('#pub-display').hide()
+  $('#user-issues').toggle()
+  $('#trello-disp').toggle()
+  $('#edit').toggle()
 
   const disp1 = $('#new-disp')
   const disp2 = $('#wip-disp')
@@ -252,6 +253,33 @@ const onTrelloSuccess = function (res) {
   }
 }
 
+const onTrelloSuccess2 = function (res) {
+  console.log(res)
+
+  $('#issue-queue').toggle()
+  $('#trello-disp2').toggle()
+
+  const disp1 = $('#new-disp2')
+  const disp2 = $('#wip-disp2')
+  const disp3 = $('#sol-disp2')
+
+  $(disp1).empty()
+  $(disp2).empty()
+  $(disp3).empty()
+
+  for (let i = 0; i < res.issues.length; i++) {
+    const issArr = res.issues[i]
+
+    if (issArr.tag === 'New') {
+      $(disp1).append('<li class="list-group-item bg-warning"><h4>' + issArr.title + '</h4><p>' + issArr.text + '</p></li>')
+    } else if (issArr.tag === 'In Progress') {
+      $(disp2).append('<li class="list-group-item bg-info"><h4>' + issArr.title + '</h4><p>' + issArr.text + '</p></li>')
+    } else if (issArr.tag === 'Solved') {
+      $(disp3).append('<li class="list-group-item bg-success"><h4>' + issArr.title + '</h4><p>' + issArr.text + '</p></li>')
+    }
+  }
+}
+
 module.exports = {
   onCreateIssueSuccess,
   onDeleteIssueSuccess,
@@ -270,5 +298,6 @@ module.exports = {
   onShowProfileError,
   onShowProfileSuccess,
   onTrelloError,
-  onTrelloSuccess
+  onTrelloSuccess,
+  onTrelloSuccess2
 }
