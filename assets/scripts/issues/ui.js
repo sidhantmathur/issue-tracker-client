@@ -18,7 +18,7 @@ const onCreateIssueSuccess = function (res) {
 
   $(list).html('<h4>' + res.issue.title + '</h4><p>' + res.issue.text + '</p><h6>' + res.issue.tag + '</h6>')
 
-  $(list2).html('<form class="create-comments"><textarea type="text" name="text" class="form-control" placeholder="Add a commment"></textarea><input type="hidden" value="' +
+  $(list2).html('<form class="create-comments"><textarea type="text" name="text" class="form-control" placeholder="Add a commment" aria-label="Add a comment"></textarea><input type="hidden" value="' +
   res.issue._id + '" name="issueId" class="form-control" placeholder="Issue ID" required><input type="submit" class="btn btn-primary" value="Comment"></form>')
   $(display).prepend(list)
   $(display2.prepend(list2))
@@ -89,7 +89,7 @@ const onShowIssuesSuccess = function (res) {
     $(list2).attr('id', 'list-' + issArr._id)
     $(list2).attr('role', 'tabpanel')
 
-    $(list2).html('<form class="create-comments"><textarea type="text" name="text" class="form-control" placeholder="Add a comment"></textarea><input type="hidden" value="' + issArr._id + '" name="issueId" class="form-control" placeholder="Issue ID" required><input type="submit" class="btn btn-primary" value="Comment"></form>')
+    $(list2).html('<form class="create-comments"><textarea type="text" name="text" class="form-control" placeholder="Add a comment" aria-label="Add a comment"></textarea><input type="hidden" value="' + issArr._id + '" name="issueId" class="form-control" placeholder="Issue ID" required><input type="submit" class="btn btn-primary" value="Comment"></form>')
     $('.create-comment').on('submit', issueEvents.onCreateComment)
     $(display2).append(list2)
     $(display).append(list)
@@ -216,7 +216,7 @@ const onShowProfileSuccess = function (res) {
 
     const list = document.createElement('li')
     $(list).addClass('list-group-item')
-    $(list).html('<h4>' + issArr.title + '</h4><p>' + issArr.text + '</p><h6>' + issArr.tag + '</h6>' + '<form class="delete-issues"><input type="hidden" name="issueId" value="' + issArr._id + '"><input type="submit" value="Delete Issue" class="btn btn-danger"></form>' + '<a class="btn btn-warning" data-toggle="collapse" href="#update-collapse-' + issArr._id + '" role="button" aria-expanded="false" aria-controls="update-collapse">Update Issue</a><div class="collapse" id="update-collapse-' + issArr._id + '"><div class="card card-body"><form class="update-issues"><input type="hidden" name="issueId" value="' + issArr._id + '"><input type="text" name="title" class="form-control" placeholder="Title"><textarea type="text" name="text" class="form-control" placeholder="Body Text"></textarea><select name="tag" class="form-control"><option>New</option><option>In Progress</option><option>Solved</option><input type="submit" class="btn btn-warning" value="Update Issue"></form>')
+    $(list).html('<h4>' + issArr.title + '</h4><p>' + issArr.text + '</p><h6>' + issArr.tag + '</h6>' + '<form class="delete-issues"><input type="hidden" name="issueId" value="' + issArr._id + '"><input type="submit" value="Delete Issue" class="btn btn-danger"></form>' + '<a class="btn btn-warning" data-toggle="collapse" href="#update-collapse-' + issArr._id + '" role="button" aria-expanded="false" aria-controls="update-collapse">Update Issue</a><div class="collapse" id="update-collapse-' + issArr._id + '"><div class="card card-body"><form class="update-issues"><input type="hidden" name="issueId" value="' + issArr._id + '"><input type="text" name="title" class="form-control" placeholder="Title" aria-label="Title"><textarea type="text" name="text" class="form-control" placeholder="Body Text" aria-label="Body Text"></textarea><select name="tag" class="form-control"><option>New</option><option>In Progress</option><option>Solved</option><input type="submit" class="btn btn-warning" value="Update Issue"></form>')
 
     $(display).append(list)
   }

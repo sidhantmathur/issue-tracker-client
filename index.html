@@ -54,15 +54,15 @@
     <div id="auth-display" class="full-auth">
       <form id="sign-up">
         <h2>Sign Up</h2>
-          <input type="email" class="form-control" name="auth[email]" placeholder="Email" required>
-          <input type="password" class="form-control" name="auth[password]" placeholder="Password" required>
-          <input type="password" class="form-control" name="auth[confirmPassword]" placeholder="Password Confirmation" required>
+          <input type="email" class="form-control" name="auth[email]" placeholder="Email" aria-label="Email" required>
+          <input type="password" class="form-control" name="auth[password]" placeholder="Password" aria-label="Password" required>
+          <input type="password" class="form-control" name="auth[confirmPassword]" placeholder="Password Confirmation" aria-label="Confirm Password"required>
           <input type="submit" class="btn btn-primary" value="Sign Up">
       </form>
       <form id="sign-in">
         <h2 class="mb-3">Sign In</h2>
-          <input type="email" class="form-control" name="auth[email]" placeholder="Email" required>
-          <input type="password" class="form-control" name="auth[password]" placeholder="Password" required>
+          <input type="email" class="form-control" name="auth[email]" placeholder="Email" aria-label="Email" required>
+          <input type="password" class="form-control" name="auth[password]" placeholder="Password" aria-label="Password" required>
           <input type="submit" class="btn btn-primary"value="Sign In">
       </form>
       <button id="auth-toggle" class="btn btn-link">Sign Up</button>
@@ -83,8 +83,8 @@
         <div class="card card-body">
           <form id="create-issue">
             <h2>Create Issue</h2>
-              <input type="text" name="title" class="form-control" placeholder="Title" required>
-              <textarea type="text" name="text" class="form-control" placeholder="Body" required></textarea>
+              <input type="text" name="title" class="form-control" placeholder="Title" aria-label="Title"required>
+              <textarea type="text" name="text" class="form-control" placeholder="Body" aria-label="Body" required></textarea>
               <p>Tag:</p>
               <select name="tag" class="form-control">
                 <option>New</option>
@@ -170,8 +170,8 @@
       </form>
       <form id="change-pass">
         <h2>Change Password</h2>
-          <input type="password" name="auth[oldPass]" class="form-control" placeholder="Old Password" required>
-          <input type="password" name="auth[newPass]" class="form-control" placeholder="New Password" required>
+          <input type="password" name="auth[oldPass]" class="form-control" placeholder="Old Password" aria-label="Old Password" required>
+          <input type="password" name="auth[newPass]" class="form-control" placeholder="New Password" aria-label="New Password" required>
           <input type="submit" class="btn btn-warning" value="Change Password">
       </form>
 
@@ -182,15 +182,15 @@
         <div class="card card-body">
           <form id="update-comment">
             <h2>Update Comment</h2>
-              <textarea name="text" class="form-control" placeholder="Update Comment"></textarea>
-              <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
-              <input type="text" name="commentId" class="form-control" placeholder="Comment ID" required>
+              <textarea name="text" class="form-control" placeholder="Update Comment" aria-label="Update Comment Text"></textarea>
+              <input type="text" name="issueId" class="form-control" placeholder="Issue ID" aria-label="Issue ID"required>
+              <input type="text" name="commentId" class="form-control" placeholder="Comment ID" aria-label="Comment ID" required>
               <input type="submit" class="btn btn-warning" value="Update Comment">
           </form>
           <form id="delete-comment">
             <h2>Delete Comment</h2>
-              <input type="text" name="issueId" class="form-control" placeholder="Issue ID" required>
-              <input type="text" name="commentId" class="form-control" placeholder="Comment ID" required>
+              <input type="text" name="issueId" class="form-control" placeholder="Issue ID" aria-label="Delete Comment" required>
+              <input type="text" name="commentId" class="form-control" placeholder="Comment ID" aria-label="Update Comment" required>
               <input type="submit" class="btn btn-danger" value="Delete Comment">
           </form>
         </div>
