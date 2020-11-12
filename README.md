@@ -48,4 +48,3 @@ The data is stored in a document database (MongoDB) due to it's relative simplic
 ## Wireframe
 
 [Planning Wireframe](https://imgur.com/a/2lvLNqt)
-
