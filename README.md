@@ -4,7 +4,7 @@ An issue tracker with issue comments, public issues and a Kanban board view.
 
 ## Important Links
 
-- [Hosted Site](https://sidhantmathur.github.io/Auth-TicTacToe-client/)
+- [Hosted Site](https://sidhantmathur.github.io/issue-tracker-client/)
 - [API Repo](https://github.com/sidhantmathur/issue-api)
 - [Heroku Hosted API](https://afternoon-beach-76578.herokuapp.com/)
 
