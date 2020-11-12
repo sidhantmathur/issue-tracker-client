@@ -1,6 +1,6 @@
-# Issue Tracker
-![Logo](./public/logo.svg)
-<img src="./public/logo.svg">
+<p style="text-align: center;"><img src="./public/logo.svg" width="100"></p>
+<h1 style="text-align: center;">Issue Tracker</h1>
+
 
 An issue tracker with issue comments, public issues and a Kanban board view. 
 
