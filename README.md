@@ -1,4 +1,6 @@
 # Issue Tracker
+![Logo](./public/logo.svg)
+<img src="./public/logo.svg">
 
 An issue tracker with issue comments, public issues and a Kanban board view. 
 
