@@ -6,7 +6,7 @@ An issue tracker with issue comments, public issues and a Kanban board view.
 
 - [Hosted Site](https://sidhantmathur.github.io/Auth-TicTacToe-client/)
 - [API Repo](https://github.com/sidhantmathur/issue-api)
-- [API](https://afternoon-beach-76578.herokuapp.com/)
+- [Heroku Hosted API](https://afternoon-beach-76578.herokuapp.com/)
 
 ## Development Story
 The plan was to make something along the lines of Github Issues, but with less formality and complexity. I wanted to keep the application intentionally simple in order to allow it to be used in many different environments, not just on collaborative programming projects. 
