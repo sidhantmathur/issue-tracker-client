@@ -8,7 +8,7 @@ An issue tracker with issue comments, public issues and a Kanban board view.
 - [API Repo](https://github.com/sidhantmathur/issue-api)
 - [Heroku Hosted API](https://afternoon-beach-76578.herokuapp.com/)
 
-## Development Story
+## Development Plan
 The plan was to make something along the lines of Github Issues, but with less formality and complexity. I wanted to keep the application intentionally simple in order to allow it to be used in many different environments, not just on collaborative programming projects. 
 
 The data is stored in a document database (MongoDB) due to it's relative simplicity. The back-end routes and schemas are viewable [here](https://github.com/sidhantmathur/issue-api). 
