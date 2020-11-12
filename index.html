@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title>Issue Tracker</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="public/logo.svg">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+
+      <!--
+        #auth-display    - login
+        #pub-display     - issue queue
+        #user-display    - user issues
+        #user-settings   - change pass
+       -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">
+        <img src="public/logo.svg" width="30" height="30" class="d-inline-block align-top" alt="Issue Logo">
+        Issue Tracker
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto" id="signed-in-nav">
+          <li id="nav-queue" class="nav-item">
+            <a id="queue" class="nav-link" href="#">Queue</a>
+          </li>
+          <!-- <li id="trello-queue" class="nav-item">
+            <a id="trello" class="nav-link" href="#">Kanban</a>
+          </li> -->
+          <li id="profile-queue" class="nav-item">
+            <a id="profile" class="nav-link" href="#">Profile</a>
+          </li>
+          <li id="settings-queue" class="nav-item">
+            <a id="settings" class="nav-link" href="#">Settings</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="container mb-5">
+
+    <div id="user-message" class="alert alert-secondary mt-3" role="alert">
+      <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button> -->
+      <span id="auth-display-text"></span>
+    </div>
+    <div id="auth-display" class="full-auth">
+      <form id="sign-up">
+        <h2>Sign Up</h2>
+          <input type="email" class="form-control" name="auth[email]" placeholder="Email" aria-label="Email" required>
+          <input type="password" class="form-control" name="auth[password]" placeholder="Password" aria-label="Password" required>
+          <input type="password" class="form-control" name="auth[confirmPassword]" placeholder="Password Confirmation" aria-label="Confirm Password"required>
+          <input type="submit" class="btn btn-primary" value="Sign Up">
+      </form>
+      <form id="sign-in">
+        <h2 class="mb-3">Sign In</h2>
+          <input type="email" class="form-control" name="auth[email]" placeholder="Email" aria-label="Email" required>
+          <input type="password" class="form-control" name="auth[password]" placeholder="Password" aria-label="Password" required>
+          <input type="submit" class="btn btn-primary"value="Sign In">
+      </form>
+      <button id="auth-toggle" class="btn btn-link">Sign Up</button>
+      <form id="guest">
+        <input type="hidden" class="form-control" name="auth[email]" placeholder="Email" value="a@a.com" required>
+        <input type="hidden" class="form-control" name="auth[password]" placeholder="Password" value="a" required>
+        <input type="submit" class="btn btn-link" value="Sign In as Guest">
+      </form>
+    </div>
+
+    <div id="pub-display">
+      <h1>Public Issues</h1>
+      <a class="btn btn-success" data-toggle="collapse" href="#create-collapse" role="button" aria-expanded="false" aria-controls="create-collapse">
+        Create Issue
+      </a>
+      <button class="btn btn-info" id="trello2">Toggle View</button>
+      <div class="collapse" id="create-collapse">
+        <div class="card card-body">
+          <form id="create-issue">
+            <h2>Create Issue</h2>
+              <input type="text" name="title" class="form-control" placeholder="Title" aria-label="Title"required>
+              <textarea type="text" name="text" class="form-control" placeholder="Body" aria-label="Body" required></textarea>
+              <p>Tag:</p>
+              <select name="tag" class="form-control">
+                <option>New</option>
+                <option>In Progress</option>
+                <option>Solved</option>
+              </select>
+              <input type="submit" class="btn btn-success" value="Create Issue">
+          </form>
+        </div>
+      </div>
+
+      <div class="row" id="issue-queue">
+        <div class="col-md-5">
+          <h4>Issue Queue</h4>
+          <div class="list-group" id="issue-display-text" role="tablist"></div>
+          <!-- 
+          <button class="btn btn-secondary prev">&laquo Prev Page</button>
+          <button class="btn btn-secondary next">Next Page &raquo</button> 
+          -->
+        </div>
+        <div class="col-md-7">
+          <h4>Comments</h4>
+          <div class="tab-content" id="comment-display"></div>
+        </div>
+      </div>
+
+      <div id="trello-disp2">
+        <div class="row">
+          <div class="col-md-4">
+            <h4 class="mt-3">New</h4>
+            <div class="list-group" id="new-disp2" role="tablist">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <h4 class="mt-3">In Progress</h4>
+            <div class="list-group" id="wip-disp2" role="tablist">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <h4 class="mt-3">Solved</h4>
+            <div class="list-group" id="sol-disp2" role="tablist">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="user-display">
+      <h1>User Issues</h1>
+      <button class="btn btn-info" id="trello">Toggle View</button>
+      <button class="btn btn-warning" id="edit">Edit Tags</button>
+
+      <ul class="list-group" id="user-issues" role="tablist"></ul>
+
+      <div id="trello-disp">
+        <div class="row">
+          <div class="col-md-4">
+            <h4 class="mt-3">New</h4>
+            <div class="list-group" id="new-disp" role="tablist">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <h4 class="mt-3">In Progress</h4>
+            <div class="list-group" id="wip-disp" role="tablist">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <h4 class="mt-3">Solved</h4>
+            <div class="list-group" id="sol-disp" role="tablist">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="user-settings">
+      <h1>User Settings</h1>
+      <h4 id="welcome"></h4>
+      <form id="sign-out">
+        <input type="submit" class="btn btn-danger" value="Sign Out">
+      </form>
+      <form id="change-pass">
+        <h2>Change Password</h2>
+          <input type="password" name="auth[oldPass]" class="form-control" placeholder="Old Password" aria-label="Old Password" required>
+          <input type="password" name="auth[newPass]" class="form-control" placeholder="New Password" aria-label="New Password" required>
+          <input type="submit" class="btn btn-warning" value="Change Password">
+      </form>
+
+      <a class="btn btn-secondary" data-toggle="collapse" href="#settings-collapse" role="button" aria-expanded="false" aria-controls="settings-collapse">
+        Developer Forms
+      </a>
+      <div class="collapse" id="settings-collapse">
+        <div class="card card-body">
+          <form id="update-comment">
+            <h2>Update Comment</h2>
+              <textarea name="text" class="form-control" placeholder="Update Comment" aria-label="Update Comment Text"></textarea>
+              <input type="text" name="issueId" class="form-control" placeholder="Issue ID" aria-label="Issue ID"required>
+              <input type="text" name="commentId" class="form-control" placeholder="Comment ID" aria-label="Comment ID" required>
+              <input type="submit" class="btn btn-warning" value="Update Comment">
+          </form>
+          <form id="delete-comment">
+            <h2>Delete Comment</h2>
+              <input type="text" name="issueId" class="form-control" placeholder="Issue ID" aria-label="Delete Comment" required>
+              <input type="text" name="commentId" class="form-control" placeholder="Comment ID" aria-label="Update Comment" required>
+              <input type="submit" class="btn btn-danger" value="Delete Comment">
+          </form>
+        </div>
+      </div>
+    </div>
+    </main>
+  </body>
+</html>
