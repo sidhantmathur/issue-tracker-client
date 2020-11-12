@@ -22,7 +22,8 @@ const onSignInSuccess = function (res) {
 
   $('#signed-in-nav').show()
 
-  $('body').css('background-color', '#fff')
+  // $('body').css('background-color', '#fff')
+  $('body').css('background-image', 'none')
 
   issueEvents.onShowIssues()
 }
@@ -45,7 +46,7 @@ const onSignOutSuccess = function () {
   $('#comment-display').empty()
   $('#user-issues').empty()
 
-  $('body').css('background-color', '#f5f5f5')
+  $('body').css('background-image', "url('public/Vorderrhein.svg')")
   $('.alert').show()
 }
 
