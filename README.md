@@ -47,6 +47,8 @@ The data is stored in a document database (MongoDB) due to it's relative simplic
 - Allowing certain users to tag any issue
 - Elegant UI for editing comments
 
-## Wireframe
+## Wireframe and More
 
 [Planning Wireframe](https://imgur.com/a/2lvLNqt)
+
+[Free Graphics](https://products.ls.graphics/paaatterns/?ref=lapaninja)
